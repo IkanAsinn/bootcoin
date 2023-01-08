@@ -29,3 +29,8 @@ D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\refint\BootCoin.dll
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\BootCoin.pdb
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\BootCoin.genruntimeconfig.cache
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\ref\BootCoin.dll
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Login\Index.cshtml.rz.scp.css
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Register\Index.cshtml.rz.scp.css
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Home\Index.cshtml.rz.scp.css
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\History\Index.cshtml.rz.scp.css
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Profile\Index.cshtml.rz.scp.css

@@ -12,25 +12,55 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-right: .8rem;
 }
 
+.user-info span:not(#username) {
+    font-weight: 700;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-ul ::deep a {
+.sidebar ul li ::deep a {
+    color: black;
     text-decoration: none;
+    font-size: 1.2em;
+}
+
+.sidebar-wrapper {
+    position: relative !important;
 }
 
 .sidebar {
-    background-color: #f8f9fa;
-    border-right: 1px solid #dee2e6;
-    height: 83vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
+    background-image: url('/images/Rectangle 13.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100% - 65px);
     margin-top: 65px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: inherit;
+}
+
+.sidebar-menu li {
+    padding: 1rem .5rem;
+}
+
+    .sidebar-menu li.active {
+        background-color:rgba(217, 217, 217, 0.5);
+        border-radius: 5px;
+    }
+
+.sidebar ::deep img {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.sidebar-menu span {
+    font-size: 2em;
 }
 
 .footer {

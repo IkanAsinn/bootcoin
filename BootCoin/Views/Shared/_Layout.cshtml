@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BootCoin.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
                 
                 <div class="user-profile">
                     <div class="user-info">
-                        <span class="fw-bold">Name</span>
+                        <span>Name</span>
                         <span id="username">Admin</span>
                     </div>
                     <img src="/images/user.png" alt="User Profile Picture" asp-append-version="true" />
@@ -24,28 +25,30 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <aside class="sidebar">
-            <span>Menu</span>
-            <ul class="sidebar-menu">
-                <li><a asp-action="#" asp-area="" asp-controller="Home">Input Coin</a></li>
-                <li><a href="#">Find User</a></li>
-                <li><a href="#">History</a></li>
-            </ul>
-            <ul class="language-menu">
-                <li>Language</li>
-            </ul>
-        </aside>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - BootCoin - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <div class="container-fluid bg-light">
+        <div class="row">
+            <div class="col-2">
+                <aside class="sidebar position-fixed top-0">
+                    <ul class="sidebar-menu">
+                        <span>Menu</span>
+                        <li class="active"><a asp-action="Index" asp-area="" asp-controller="Home"><img src="/images/Touchpad.png" asp-append-version="true"/>Input Coin</a></li>
+                        <li><a asp-action="Index" asp-area="" asp-controller="Home"><img src="/images/Search.png" asp-append-version="true"/>Find User</a></li>
+                        <li><a asp-action="Index" asp-area="" asp-controller="History"><img src="/images/History.png" asp-append-version="true"/>History</a></li>
+                    </ul>
+                    <ul class="language-menu">
+                        <li class="fw-bold text-white" style="font-size: 1.2em"><img src="/images/Globe.png" asp-append-version="true"/>Language</li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="col-10">
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
         </div>
-    </footer>
+
+
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

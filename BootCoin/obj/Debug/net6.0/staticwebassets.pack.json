@@ -13,6 +13,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\Globe.png",
+      "PackagePath": "staticwebassets\\images\\Globe.png"
+    },
+    {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\History.png",
+      "PackagePath": "staticwebassets\\images\\History.png"
+    },
+    {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\Rectangle 13.png",
+      "PackagePath": "staticwebassets\\images\\Rectangle 13.png"
+    },
+    {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\Search.png",
+      "PackagePath": "staticwebassets\\images\\Search.png"
+    },
+    {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\Touchpad.png",
+      "PackagePath": "staticwebassets\\images\\Touchpad.png"
+    },
+    {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\background.png",
+      "PackagePath": "staticwebassets\\images\\background.png"
+    },
+    {
       "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
