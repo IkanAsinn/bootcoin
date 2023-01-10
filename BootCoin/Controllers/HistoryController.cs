@@ -8,5 +8,10 @@ namespace BootCoin.Controllers
         {
             return View();
         }
+
+        public IActionResult Redeem()
+        {
+            return View();
+        }
     }
 }

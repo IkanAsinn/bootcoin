@@ -63,10 +63,6 @@ ul[b-3ixs0v6ua9] {
     font-size: 2em;
 }
 
-.footer[b-3ixs0v6ua9] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+.main-container[b-3ixs0v6ua9] {
+    background-color: #E9E9E9 !important;
 }

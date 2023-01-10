@@ -1,5 +1,32 @@
 /* _content/BootCoin/Views/History/Index.cshtml.rz.scp.css */
-body[b-hq21gc5ret] {
+/*make a triangle pointing to menu above*/
+
+.main-content [b-hq21gc5ret]::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 60px;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+/* _content/BootCoin/Views/History/Redeem.cshtml.rz.scp.css */
+/*make a triangle pointing to menu above*/
+
+.main-content [b-9xjrb267s8]::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 200px;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
 }
 /* _content/BootCoin/Views/Home/Index.cshtml.rz.scp.css */
 body[b-orablxqyin] {
@@ -79,10 +106,6 @@ ul[b-3ixs0v6ua9] {
     font-size: 2em;
 }
 
-.footer[b-3ixs0v6ua9] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+.main-container[b-3ixs0v6ua9] {
+    background-color: #E9E9E9 !important;
 }
