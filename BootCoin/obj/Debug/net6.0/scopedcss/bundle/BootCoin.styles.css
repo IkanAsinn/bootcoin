@@ -44,6 +44,11 @@ body[b-nhx92gzojh] {
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.navbar[b-3ixs0v6ua9] {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
 .user-profile[b-3ixs0v6ua9] {
     display: flex;
     align-items: center;
