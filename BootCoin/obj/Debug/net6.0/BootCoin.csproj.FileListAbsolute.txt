@@ -34,3 +34,4 @@ D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Register\Index
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Home\Index.cshtml.rz.scp.css
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\History\Index.cshtml.rz.scp.css
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Profile\Index.cshtml.rz.scp.css
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\History\Redeem.cshtml.rz.scp.css

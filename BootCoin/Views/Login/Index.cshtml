@@ -1,10 +1,31 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    
+﻿@{
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
 }
 
-
-
-
+<div class="wrapper p-4 ">
+    <div class="row d-flex justify-content-between">
+        <div class="col-4">
+            <div class="logo">
+                <img src="/images/logo.png" alt="logo" asp-append-version="true" />
+                <p class="fw-bold">Coins For The Strong</p>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="form-wrapper rounded d-flex flex-column justify-content-center">
+                <form method="POST">
+                    <h1 class="text-white display-3 align-text-left mb-5">Sign-In</h1>
+                    <div class="form-group">
+                        <label for="username">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" />
+                    </div>
+                    <button type="submit" class="btn btn-login mx-auto d-block">Sign In</button>
+                    <p class="text-center mt-3 text-white">Don’t have an account? <a class="text-white fw-bold text-decoration-none" asp-area="" asp-controller="Register" asp-action="Index">Register</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
