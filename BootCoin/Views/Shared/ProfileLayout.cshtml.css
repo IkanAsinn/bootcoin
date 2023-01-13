@@ -1,0 +1,20 @@
+﻿.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span {
+    text-align: right;
+    display: block;
+    margin-right: .8rem;
+}
+
+.user-info span:not(#username) {
+    font-weight: 700;
+}
+
