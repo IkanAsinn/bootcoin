@@ -10,5 +10,6 @@ namespace BootCoin.Data
         }
 
         public DbSet<Bootcoin_Transactions> Bootcoin_Transactions { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }
