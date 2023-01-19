@@ -51,8 +51,8 @@
                                         <td>@transaction.Group</td>
                                         <td>@transaction.CoinsEarned</td>
                                         <td>@transaction.AdminName</td>
-                                        <td>@transaction.TransactionDate</td>
-                                        <td>20:20</td>
+                                        <td>@transaction.TransactionDate.ToString("dd/MM/yyyy")</td>
+                                        <td>@transaction.TransactionDate.ToString("hh:mm")</td>
                                     </tr>
                                 }
                             }

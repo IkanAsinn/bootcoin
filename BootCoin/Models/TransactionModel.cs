@@ -7,6 +7,7 @@ namespace BootCoin.Models
     {
         public string TransactionId { get; set; }
         [DisplayName("Transaction Date")]
+        [DataType(DataType.Date)]
         public DateTime TransactionDate { get; set; } = DateTime.Now;
         [DisplayName("Admin Id")]
         public string AdminID { get; set; }
