@@ -70,4 +70,6 @@ ul[b-3ixs0v6ua9] {
 
 .main-container[b-3ixs0v6ua9] {
     background-color: #E9E9E9 !important;
+    overflow: scroll !important;
+    margin-top: 4rem;
 }

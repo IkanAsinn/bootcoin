@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "o42tacnwORH1TnM71H8FxAigBgVOHM1M94S+v4zCf0s=",
+  "Hash": "MaM1vVPICLnzpnFgtipozzibcVCL/C/d84Z7i0te0Hs=",
   "Source": "BootCoin",
   "BasePath": "_content/BootCoin",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\logo.png"
+    },
+    {
+      "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\profilebg.png",
+      "SourceId": "BootCoin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\",
+      "BasePath": "_content/BootCoin",
+      "RelativePath": "images/profilebg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profilebg.png"
     },
     {
       "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\Rectangle 13.png",

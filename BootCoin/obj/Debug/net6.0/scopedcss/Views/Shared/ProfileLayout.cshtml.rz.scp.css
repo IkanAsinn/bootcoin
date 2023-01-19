@@ -1,0 +1,20 @@
+.navbar[b-avl58tm25l] {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
+.user-profile[b-avl58tm25l] {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span[b-avl58tm25l] {
+    text-align: right;
+    display: block;
+    margin-right: .8rem;
+}
+
+.user-info span:not(#username)[b-avl58tm25l] {
+    font-weight: 700;
+}
+

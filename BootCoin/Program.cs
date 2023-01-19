@@ -1,7 +1,23 @@
+using BootCoin.Data;
+//using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var provider = builder.Services.BuildServiceProvider();
+var configuration = provider.GetRequiredService<IConfiguration>();
+builder.Services.AddDbContext<ApplicationDbContext>(item => item.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+
+//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+//    .AddCookie(options =>
+//    {
+//        options.LoginPath = "/Login/Index";
+//        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+//    });
 
 var app = builder.Build();
 
@@ -18,6 +34,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+//app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

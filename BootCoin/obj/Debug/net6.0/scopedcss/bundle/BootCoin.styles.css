@@ -91,11 +91,39 @@ body[b-orablxqyin] {
     font-size: 18px;
 }
 /* _content/BootCoin/Views/Profile/Index.cshtml.rz.scp.css */
-body[b-ooapj3ehc2] {
+.main-content[b-ooapj3ehc2] {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: linear-gradient(170deg, rgba(246, 234, 123, .9), rgba(182, 30, 148, .9)), url('/images/profilebg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Poppins;
 }
 /* _content/BootCoin/Views/Register/Index.cshtml.rz.scp.css */
 body[b-nhx92gzojh] {
 }
+/* _content/BootCoin/Views/Shared/ProfileLayout.cshtml.rz.scp.css */
+.navbar[b-avl58tm25l] {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
+.user-profile[b-avl58tm25l] {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span[b-avl58tm25l] {
+    text-align: right;
+    display: block;
+    margin-right: .8rem;
+}
+
+.user-info span:not(#username)[b-avl58tm25l] {
+    font-weight: 700;
+}
+
 /* _content/BootCoin/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
@@ -169,4 +197,6 @@ ul[b-3ixs0v6ua9] {
 
 .main-container[b-3ixs0v6ua9] {
     background-color: #E9E9E9 !important;
+    overflow: scroll !important;
+    margin-top: 4rem;
 }
