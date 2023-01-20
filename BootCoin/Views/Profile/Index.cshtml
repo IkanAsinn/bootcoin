@@ -24,7 +24,7 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" style="height: 20vh;">
 
                         <div class="h5 fw-bold m-2">
-                            User name
+                                @ViewBag.Name
                         </div>
 
                         <label for="image" class="btn btn-warning">Upload Photo</label>
@@ -42,12 +42,12 @@
 
                           <div class="h6 fw-bold mb-3" >
                             <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="name" value="User Name" required>
+                                <input type="text" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="name" value="@ViewBag.Name" required>
                           </div>
 
                           <div class="h6 fw-bold mb-4">
                             <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="email" value="user@mail.com" required>
+                            <input type="email" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="email" value="@ViewBag.Email" required>
                           </div>
 
                           <div class="h4 fw-bold mb-2">
