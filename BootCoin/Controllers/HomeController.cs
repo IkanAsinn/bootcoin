@@ -15,7 +15,16 @@ namespace BootCoin.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // if not logged in, redirect to /Login
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            // else, return view
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult Privacy()

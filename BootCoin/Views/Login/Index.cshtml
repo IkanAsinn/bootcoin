@@ -1,4 +1,6 @@
-﻿@{
+﻿@model BootCoin.Models.UserLogin
+
+@{
     Layout = "~/Views/Shared/LoginLayout.cshtml";
 }
 
@@ -12,15 +14,15 @@
         </div>
         <div class="col-8">
             <div class="form-wrapper rounded d-flex flex-column justify-content-center">
-                <form method="POST">
+                <form method="post" asp-action="Login" asp-controller="Login">
                     <h1 class="text-white display-3 align-text-left mb-5">Sign-In</h1>
                     <div class="form-group">
-                        <label for="username">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" />
+                        <label asp-for="Email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" asp-for="Email" />
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" />
+                        <label asp-for="Password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" asp-for="Password"/>
                     </div>
                     <button type="submit" class="btn btn-login mx-auto d-block">Sign In</button>
                     <p class="text-center mt-3 text-white">Don’t have an account? <a class="text-white fw-bold text-decoration-none" asp-area="" asp-controller="Register" asp-action="Index">Register</a></p>

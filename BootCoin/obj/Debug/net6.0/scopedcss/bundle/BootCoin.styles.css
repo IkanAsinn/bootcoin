@@ -60,14 +60,20 @@ body[b-orablxqyin] {
         font-weight: 600;
     }
 
-    .form-wrapper input[b-wwz9d069d5] {
+    .form-wrapper[b-wwz9d069d5]  input {
         border: none;
         border-bottom: 1px solid #fff;
         background-color: transparent;
         color: #fff;
+        border-radius: 0;
     }
 
-    .form-wrapper label[b-wwz9d069d5] {
+        .form-wrapper[b-wwz9d069d5]  input:focus {
+            border-bottom: 1px solid #fff;
+            box-shadow: none;
+        }
+
+    .form-wrapper[b-wwz9d069d5]  label {
         color: #fff;
         font-size: 24px;
         padding-left: 6px;

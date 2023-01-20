@@ -9,12 +9,15 @@ namespace BootCoin.Models.DBEntities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(TypeName = "nvarchar(50)")]
         public string AdminID { get; set; }
+
         [Column(TypeName = "nvarchar(50)")]
         [Required]
         public string AdminName { get; set; }
+        
         [Column(TypeName = "nvarchar(50)")]
         [Required]
         public string Email { get; set; }
+        
         [Column(TypeName = "nvarchar(50)")]
         [Required]
         public string Password { get; set; }
