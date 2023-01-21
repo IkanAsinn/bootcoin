@@ -1,10 +1,11 @@
 ﻿using BootCoin.Data;
 using BootCoin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 
 namespace BootCoin.Controllers
 {
+    [Authorize]
     public class HistoryController : Controller
     {
         private readonly ApplicationDbContext _context;

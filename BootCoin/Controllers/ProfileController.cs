@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace BootCoin.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         public IActionResult Index()

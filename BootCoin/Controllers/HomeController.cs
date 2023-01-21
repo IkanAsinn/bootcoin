@@ -18,7 +18,7 @@ namespace BootCoin.Controllers
             // if not logged in, redirect to /Login
             if (!User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Login", "Account");
             }
             // else, return view
             else

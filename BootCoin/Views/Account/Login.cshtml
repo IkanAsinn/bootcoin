@@ -14,7 +14,13 @@
         </div>
         <div class="col-8">
             <div class="form-wrapper rounded d-flex flex-column justify-content-center">
-                <form method="post" asp-action="Login" asp-controller="Login">
+                <form method="post" asp-action="Login" asp-controller="Account">
+                    @if (TempData.Any())
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @TempData.First().Value
+                        </div>
+                    }
                     <h1 class="text-white display-3 align-text-left mb-5">Sign-In</h1>
                     <div class="form-group">
                         <label asp-for="Email">Email</label>

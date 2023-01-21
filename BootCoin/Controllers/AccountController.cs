@@ -1,31 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using BootCoin.Data;
 using BootCoin.Models;
-using BootCoin.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BootCoin.Controllers
 {
-    public class LoginController : Controller
+    public class AccountController : Controller
     {
-
         private readonly ApplicationDbContext _context;
 
-        public LoginController(ApplicationDbContext context)
+        public AccountController(ApplicationDbContext context)
         {
             this._context = context;
         }
-        
+
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Login()
         {
             UserLogin _UserLogin = new UserLogin();
             return View(_UserLogin);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login (string email, string password)
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(string email, string password)
         {
             var user = _context.Admins.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
 
@@ -71,12 +72,28 @@ namespace BootCoin.Controllers
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties);
 
+                // if there is returnUrl in params, return to the url
+                if (Url.IsLocalUrl(Request.Query["ReturnUrl"]))
+                {
+                    return Redirect(Request.Query["ReturnUrl"]);
+                }
+
                 return RedirectToAction("Index", "Home");
+
             }
             else
             {
+                TempData.Add("Message", "Invalid Email or Password");
                 return RedirectToAction("Index", "Login");
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Account");
+        }
     }
 }
+
