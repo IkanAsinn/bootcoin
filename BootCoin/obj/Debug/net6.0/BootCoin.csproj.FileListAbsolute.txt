@@ -32,9 +32,7 @@ D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\ref\BootCoin.dll
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Login\Index.cshtml.rz.scp.css
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Register\Index.cshtml.rz.scp.css
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Home\Index.cshtml.rz.scp.css
-D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\History\Index.cshtml.rz.scp.css
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Profile\Index.cshtml.rz.scp.css
-D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\History\Redeem.cshtml.rz.scp.css
 D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\Shared\ProfileLayout.cshtml.rz.scp.css
 D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\Azure.Core.dll
 D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\Azure.Identity.dll
@@ -302,3 +300,6 @@ D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\runtimes\unix\lib\net6.0\Syste
 D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\History\_Redeem.cshtml.rz.scp.css
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\History\_History.cshtml.rz.scp.css
+D:\C# Projects\BootCoin\BootCoin\obj\Debug\net6.0\scopedcss\Views\History\Index.cshtml.rz.scp.css

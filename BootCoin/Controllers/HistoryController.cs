@@ -15,6 +15,11 @@ namespace BootCoin.Controllers
         }
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult Details()
+        {
             // select all data from Bootcoin_Transaction table
             var transactions = _context.Bootcoin_Transactions.ToList();
             if (transactions != null)
@@ -24,7 +29,7 @@ namespace BootCoin.Controllers
                 {
                     var TransactionModel = new TransactionModel()
                     {
-                        TransactionId = transaction.TransactionID,
+                        TransactionID = transaction.TransactionID,
                         TransactionDate = transaction.TransactionDate,
                         AdminID = transaction.AdminID,
                         AdminName = transaction.AdminName,
@@ -34,15 +39,35 @@ namespace BootCoin.Controllers
                     };
                     transactionList.Add(TransactionModel);
                 }
-                return View(transactionList);
+                return PartialView("_History", transactionList);
             }
 
-            return View();
+            return PartialView("_History", null);
         }
 
         public IActionResult Redeem()
         {
-            return View();
+            var transactions = _context.Bootcoin_Redeems.ToList();
+            if (transactions != null)
+            {
+                List<RedeemModel> RedeemsList = new List<RedeemModel>();
+                foreach (var Redeems in transactions)
+                {
+                    var RedeemModel = new RedeemModel()
+                    {
+                        TransactionID = Redeems.TransactionID,
+                        RedeemsDate = Redeems.RedeemsDate,
+                        ParticipantID = Redeems.ParticipantID,
+                        ParticipantName = Redeems.ParticipantName,
+                        Group = Redeems.Group,
+                        CoinsRedeemed = Redeems.CoinsRedeemed
+                    };
+                    RedeemsList.Add(RedeemModel);
+                }
+                return PartialView("_Redeem", RedeemsList);
+            }
+
+            return PartialView("_Redeem", null);
         }
     }
 }

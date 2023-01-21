@@ -44,9 +44,13 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-hq21gc5ret
 
-[D:/C\# Projects/BootCoin/BootCoin/Views/History/Redeem.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeVxSZWRlZW0uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-9xjrb267s8
+[D:/C\# Projects/BootCoin/BootCoin/Views/History/_History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeVxfSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-3cpv25wjoq
+
+[D:/C\# Projects/BootCoin/BootCoin/Views/History/_Redeem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeVxfUmVkZWVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-vpshw2c4xh
 
 [D:/C\# Projects/BootCoin/BootCoin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=

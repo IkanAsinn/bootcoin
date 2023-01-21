@@ -1,0 +1,44 @@
+﻿@model List<BootCoin.Models.RedeemModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="col-md-12 mb-3 main-content">
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Group</th>
+                        <th scope="col">Redeemed</th>
+                        <th scope="col">Prize</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        @foreach (var item in Model)
+                        {
+                                <tr>
+                                    <td>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
+                        @item.ParticipantName
+                                    </td>
+                                    <td>@item.Group</td>
+                                    <td>@item.CoinsRedeemed</td>
+                                    <td>Prize A</td>
+                                    <td>@item.RedeemsDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.RedeemsDate.ToString("hh:mm")</td>
+                                </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
