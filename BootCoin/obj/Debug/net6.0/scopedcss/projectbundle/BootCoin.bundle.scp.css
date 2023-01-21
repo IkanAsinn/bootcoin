@@ -1,7 +1,9 @@
 /* _content/BootCoin/Views/History/Index.cshtml.rz.scp.css */
-/*make a triangle pointing to menu above*/
-
-.main-content [b-hq21gc5ret]::before {
+a[b-hq21gc5ret] {
+    cursor: pointer;
+}
+/* _content/BootCoin/Views/History/_History.cshtml.rz.scp.css */
+.main-content [b-3cpv25wjoq]::before {
     content: "";
     position: absolute;
     top: -10px;
@@ -13,10 +15,10 @@
     border-right: 10px solid transparent;
     border-bottom: 10px solid #fff;
 }
-/* _content/BootCoin/Views/History/Redeem.cshtml.rz.scp.css */
+/* _content/BootCoin/Views/History/_Redeem.cshtml.rz.scp.css */
 /*make a triangle pointing to menu above*/
 
-.main-content [b-9xjrb267s8]::before {
+.main-content [b-vpshw2c4xh]::before {
     content: "";
     position: absolute;
     top: -10px;

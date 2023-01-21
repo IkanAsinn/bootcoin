@@ -4,35 +4,32 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BootCoin.Models
 {
-    public class TransactionModel
+    public class RedeemModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(TypeName = "nvarchar(50)")]
         public string TransactionID { get; set; }
         
-        [DisplayName("Transaction Date")]
+        [DisplayName("Redeems Date")]
         [Column(TypeName = "Date")]
-        public DateTime TransactionDate { get; set; } = DateTime.Now;
-        
-        [DisplayName("Admin Id")]
+        public DateTime RedeemsDate { get; set; } = DateTime.Now;
+
+        [DisplayName("Participant Id")]
         [Column(TypeName = "nvarchar(50)")]
-        public string AdminID { get; set; }
-        
-        [DisplayName("Admin Name")]
-        [Column(TypeName = "nvarchar(50)")]
-        public string AdminName { get; set; }
+        public string ParticipantID { get; set; }
 
         [DisplayName("Participant Name")]
         [Column(TypeName = "nvarchar(50)")]
         public string ParticipantName { get; set; }
-        
+
         [DisplayName("Group")]
         [Column(TypeName = "nvarchar(50)")]
         public string Group { get; set; }
-        
-        [DisplayName("Coins Earned")]
+
+        [DisplayName("Coins Redeemed")]
         [Column(TypeName = "int")]
-        public int CoinsEarned { get; set; }
+        public int CoinsRedeemed { get; set; }
+
     }
 }

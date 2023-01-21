@@ -1,4 +1,4 @@
-﻿using BootCoin.Models.DBEntities;
+﻿using BootCoin.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BootCoin.Data
@@ -9,7 +9,8 @@ namespace BootCoin.Data
         {
         }
 
-        public DbSet<Bootcoin_Transactions> Bootcoin_Transactions { get; set; }
-        public DbSet<Admin> Admins { get; set; }
+        public DbSet<TransactionModel> Bootcoin_Transactions { get; set; }
+        public DbSet<UserLogin> Admins { get; set; }
+        public DbSet<RedeemModel> Bootcoin_Redeems { get; set; }
     }
 }

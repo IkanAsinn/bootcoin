@@ -11,54 +11,42 @@
             <p class="h2 fw-bold">History</p>
         </div>
     </div>
-    
+
     <div class="col-md-12 mb-3">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link text-black active bg-warning fw-bold" aria-current="page" asp-action="Index" asp-controller="History" asp-area="">Added Coin</a>
+                <a class="nav-link text-black active bg-warning fw-bold history">Added Coin</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-black fw-bold" asp-action="Redeem" asp-controller="History" asp-area="">Redeemed Coin</a>
+                <a class="nav-link text-black fw-bold redeems">Redeemed Coin</a>
             </li>
         </ul>
     </div>
-
-    <div class="col-md-12 mb-3 main-content">
-            <div class="card">
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Group</th>
-                                <th scope="col">Added</th>
-                                <th scope="col">Admin</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if (Model != null && Model.Any())
-                            {
-                            
-                                @foreach (var transaction in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
-                                                @transaction.ParticipantName
-                                        </td>
-                                        <td>@transaction.Group</td>
-                                        <td>@transaction.CoinsEarned</td>
-                                        <td>@transaction.AdminName</td>
-                                        <td>@transaction.TransactionDate.ToString("dd/MM/yyyy")</td>
-                                        <td>@transaction.TransactionDate.ToString("hh:mm")</td>
-                                    </tr>
-                                }
-                            }
-                    </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    
+    <div class="content">
+        
+    </div>
 </div>
+
+@section Scripts {
+        <script>
+            $(document).ready(function () {
+                $('.content').load('/History/Details');
+
+                let redeemBtn = $('.redeems');
+                let historyBtn = $('.history');
+                
+                $(redeemBtn).click(() => {
+                    $('.content').load('/History/Redeem');
+                    $(redeemBtn).addClass('active bg-warning');
+                    $(historyBtn).removeClass('active bg-warning');
+                });
+
+                $('.history').click(() => {
+                    $('.content').load('/History/Details');
+                    $(historyBtn).addClass('active bg-warning');
+                    $(redeemBtn).removeClass('active bg-warning');
+                });
+            });
+        </script>
+}
