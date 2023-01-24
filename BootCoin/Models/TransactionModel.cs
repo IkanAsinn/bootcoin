@@ -23,6 +23,10 @@ namespace BootCoin.Models
         [Column(TypeName = "nvarchar(50)")]
         public string AdminName { get; set; }
 
+        [DisplayName("Participant Id")]
+        [Column(TypeName = "nvarchar(50)")]
+        public string ParticipantID { get; set; }
+
         [DisplayName("Participant Name")]
         [Column(TypeName = "nvarchar(50)")]
         public string ParticipantName { get; set; }

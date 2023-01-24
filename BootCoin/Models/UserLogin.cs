@@ -14,13 +14,13 @@ namespace BootCoin.Models
         [Column(TypeName = "nvarchar(50)")]
         [Required]
         public string AdminName { get; set; }
-
-        [Column(TypeName = "nvarchar(50)")]
+        
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
         [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
     }

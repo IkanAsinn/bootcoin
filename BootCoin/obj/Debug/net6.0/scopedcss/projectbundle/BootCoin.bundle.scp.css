@@ -99,7 +99,8 @@ a[b-hq21gc5ret] {
     border-bottom: 10px solid #fff;
 }
 /* _content/BootCoin/Views/Home/Index.cshtml.rz.scp.css */
-body[b-orablxqyin] {
+a[b-orablxqyin] {
+    cursor: pointer;
 }
 /* _content/BootCoin/Views/Profile/Index.cshtml.rz.scp.css */
 .main-content[b-ooapj3ehc2] {
@@ -207,4 +208,10 @@ ul[b-3ixs0v6ua9] {
     background-color: #E9E9E9 !important;
     overflow: scroll !important;
     margin-top: 4rem;
+    -ms-overflow-style: none;
+    scrollbar-width: 0;
+}
+
+.main-container[b-3ixs0v6ua9]::-webkit-scrollbar {
+    display: none;
 }

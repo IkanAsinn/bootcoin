@@ -1,0 +1,29 @@
+﻿@model List<UsersGroupModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Coin Obtained</th>
+            <th scope="col">Redeemed Coin</th>
+            <th scope="col">Coin Remained</th>
+            <th scope="col">Add Coin</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
+                    @user.ParticipantName
+                </td>
+                <td>@user.CoinsObtained</td>
+                <td>@user.CoinsRedeemed</td>
+                <td>@user.CoinsRemained</td>
+                <td>+</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-warning">Add User</button>

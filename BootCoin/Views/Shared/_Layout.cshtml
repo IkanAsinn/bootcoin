@@ -28,14 +28,14 @@
         </nav>
     </header>
     <div class="container-fluid bg-light">
-        <div class="row">
+        <div class="row" style="margin-right: 0">
             <div class="col-2">
                 <aside class="sidebar position-fixed top-0">
                     <ul class="sidebar-menu">
                         <span>Menu</span>
-                        <li class="active"><a asp-action="Index" asp-area="" asp-controller="Home"><img src="/images/Touchpad.png" asp-append-version="true"/>Input Coin</a></li>
-                        <li><a asp-action="Index" asp-area="" asp-controller="Home"><img src="/images/Search.png" asp-append-version="true"/>Find User</a></li>
-                        <li><a asp-action="Index" asp-area="" asp-controller="History"><img src="/images/History.png" asp-append-version="true"/>History</a></li>
+                        <li id="input-coin"><a asp-action="Index" asp-area="" asp-controller="Home"><img src="/images/Touchpad.png" asp-append-version="true"/>Input Coin</a></li>
+                        <li id="find-user"><a asp-action="Index" asp-area="" asp-controller="Home"><img src="/images/Search.png" asp-append-version="true"/>Find User</a></li>
+                        <li id="history"><a asp-action="Index" asp-area="" asp-controller="History"><img src="/images/History.png" asp-append-version="true"/>History</a></li>
                     </ul>
                     <ul class="language-menu">
                         <li class="fw-bold text-white" style="font-size: 1.2em"><img src="/images/Globe.png" asp-append-version="true"/>Language</li>

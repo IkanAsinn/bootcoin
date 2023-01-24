@@ -72,4 +72,10 @@ ul {
     background-color: #E9E9E9 !important;
     overflow: scroll !important;
     margin-top: 4rem;
+    -ms-overflow-style: none;
+    scrollbar-width: 0;
+}
+
+.main-container::-webkit-scrollbar {
+    display: none;
 }

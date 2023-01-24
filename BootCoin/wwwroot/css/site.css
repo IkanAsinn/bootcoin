@@ -1,7 +1,7 @@
 html {
   font-size: 14px;
   font-family: Poppins !important;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 @media (min-width: 768px) {

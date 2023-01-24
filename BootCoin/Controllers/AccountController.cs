@@ -5,16 +5,21 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace BootCoin.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly SignInManager<IdentityUser> _SignInManager;
+        private readonly UserManager<IdentityUser> _UserManager;
 
-        public AccountController(ApplicationDbContext context)
+        public AccountController(ApplicationDbContext context, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             this._context = context;
+            this._SignInManager = signInManager;
+            this._UserManager = userManager;
         }
 
         [HttpGet]
@@ -26,10 +31,9 @@ namespace BootCoin.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login(UserLogin userLogin, string ReturnUrl)
         {
-            var user = _context.Admins.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
-
+            var user = _context.Admins.Where(u => u.Email == userLogin.Email && u.Password == userLogin.Password).FirstOrDefault();
             if (user != null)
             {
                 var claims = new List<Claim>
@@ -73,18 +77,17 @@ namespace BootCoin.Controllers
                     authProperties);
 
                 // if there is returnUrl in params, return to the url
-                if (Url.IsLocalUrl(Request.Query["ReturnUrl"]))
+                if (String.IsNullOrEmpty(ReturnUrl))
                 {
-                    return Redirect(Request.Query["ReturnUrl"]);
+                    return RedirectToAction("Index", "Home");
                 }
 
-                return RedirectToAction("Index", "Home");
-
+                return Redirect(ReturnUrl);
             }
             else
             {
                 TempData.Add("Message", "Invalid Email or Password");
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Login", "Account");
             }
         }
 
@@ -93,6 +96,55 @@ namespace BootCoin.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> TempLogin(UserLogin userInfo, string ReturnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _SignInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, false, false);
+
+                if (result.Succeeded)
+                {
+                    if (String.IsNullOrEmpty(ReturnUrl))
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                }
+                else
+                {
+                    TempData.Add("Message", "Invalid Email or Password");
+                    return RedirectToAction("Login", "Account");
+                }
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Register(UserLogin userInfo, string ReturnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new IdentityUser { UserName = userInfo.Email, Email = userInfo.Email };
+                var result = await _UserManager.CreateAsync(user, userInfo.Password);
+
+                if (result.Succeeded)
+                {
+                    if (String.IsNullOrEmpty(ReturnUrl))
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                }
+
+                return View();
+            }
+            return View();
         }
     }
 }

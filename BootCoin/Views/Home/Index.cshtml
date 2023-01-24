@@ -12,16 +12,16 @@
         <div class="col-md-12 mb-3">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link text-black active" aria-current="page" href="#">Group 1</a>
+                    <a class="nav-link bg-warning text-black fw-bold active" data-group="A">Group A</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" href="#">Group 2</a>
+                    <a class="nav-link text-black" data-group="B">Group B</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" href="#">Group 3</a>
+                    <a class="nav-link text-black" data-group="C">Group C</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" href="#">Group 4</a>
+                    <a class="nav-link text-black" data-group="D">Group D</a>
                 </li>
             </ul>
         </div>
@@ -58,36 +58,32 @@
         <div class="col-md-12 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Coin Obtained</th>
-                                <th scope="col">Redeemed Coin</th>
-                                <th scope="col">Coin Remained</th>
-                                <th scope="col">Add Coin</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
-                                    user name
-                                </td>
-                                <td>1000</td>
-                                <td>250</td>
-                                <td>750</td>
-                                <td>+</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <button type="button" class="btn btn-warning">Add User</button>
+                    
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
+@section Scripts {
+        <script>
+            $(document).ready(function () {
+                let container = $('.card-body');
+                container.load('/Home/GetParticipants?group=A')
+                let buttons = $('.nav-link');
+                let currentButton = $('.nav-link.active');
+                $('#input-coin').addClass('active');
+                
+                buttons.each(button => {
+                    $(buttons[button]).click(function () {
+                        let group = $(this).data('group');
+                        container.load('/Home/GetParticipants?group=' + group);
+                        $(buttons[button]).addClass('active bg-warning fw-bold');
+                        $(currentButton).removeClass('active bg-warning fw-bold');
+                        currentButton = $(buttons[button]);
+                    });
+                });
+            });
+        </script>
+}
