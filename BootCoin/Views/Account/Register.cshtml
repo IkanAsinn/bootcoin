@@ -1,5 +1,51 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BootCoin.Models.DBEntities.Admin
 @{
+    ViewData["title"] = "Register";
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
 }
+
+<div class="wrapper p-4 ">
+    <div class="row d-flex justify-content-start">
+        <div class="col-4">
+            <div class="logo">
+                <img src="/images/logo.png" alt="logo" asp-append-version="true" />
+                <p class="fw-bold">Coins For The Strong</p>
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="form-wrapper rounded d-flex flex-column justify-content-center">
+                <form method="POST" asp-action="Register" asp-controller="Account">
+                    <h1 class="text-white display-4 align-text-left mb-3" id="title-register">Register</h1>
+                    <div class="form-group mb-3">
+                        <label class="fs-5" asp-for="AdminName">Name </label>
+                        <input type="text" class="form-control" id="username" name="username" asp-for="AdminName"/>
+                        <span asp-validation-for="AdminName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="fs-5" asp-for="Email">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" asp-for="Email"/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="fs-5" asp-for="Password">Password</label>
+                        <input asp-for="Password" type="password" class="form-control" id="password" name="password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="fs-5">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"/>
+                        <span></span>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="agreeTermsAndCondition">
+                        <label class="form-check-label" for="flexCheckChecked">
+                        I Agree to The Terms and Conditions
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-register mx-auto d-block" id="btn-register">Register</button>
+                    <p class="text-center mt-2 text-white">Have an account? <a class="text-white fw-bold text-decoration-none" asp-controller="Account" asp-action="Login">Sign in</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

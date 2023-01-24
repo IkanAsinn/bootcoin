@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/LoginLayout.cshtml";
+    ViewData["Title"] = "Login";
 }
 
 <div class="wrapper p-4 ">
@@ -31,7 +32,7 @@
                         <input type="password" class="form-control" asp-for="Password"/>
                     </div>
                     <button type="submit" class="btn btn-login mx-auto d-block">Sign In</button>
-                    <p class="text-center mt-3 text-white">Don’t have an account? <a class="text-white fw-bold text-decoration-none" asp-area="" asp-controller="Register" asp-action="Index">Register</a></p>
+                    <p class="text-center mt-3 text-white">Don’t have an account? <a class="text-white fw-bold text-decoration-none" asp-area="" asp-controller="Account" asp-action="Register">Register</a></p>
                 </form>
             </div>
         </div>

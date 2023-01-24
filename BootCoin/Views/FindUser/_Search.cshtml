@@ -1,0 +1,14 @@
+﻿@model List<BootCoin.Models.ParticipantsModel>
+
+@foreach (var participant in Model)
+{
+    <tr>
+        <td>
+            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
+    @participant.ParticipantName
+        </td>
+        <td>@participant.Group</td>
+        <td>N/A</td>
+    </tr> 
+}
+

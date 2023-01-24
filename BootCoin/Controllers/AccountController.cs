@@ -146,6 +146,12 @@ namespace BootCoin.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
 

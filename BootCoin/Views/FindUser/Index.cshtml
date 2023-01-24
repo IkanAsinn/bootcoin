@@ -1,0 +1,68 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Find User";
+}
+
+<div class="main-container p-4">
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <p class="h2 fw-bold">Find User</p>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <form>
+                <div class="input-group mb-3" >
+                     <input type="text" class="form-control" placeholder="Input Name" name="ToFind" id="ToFind">
+                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2" asp-controller="FindUser" asp-action="search">
+                         <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" class="img-fluid my-auto" style="height: 2.5vh;" alt="search"/>
+                     </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-12 mb-3">
+
+            <div class="card">
+                <div class="card-title">
+                    <p class="h2 fw-bold ms-3 mt-3">User List</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Group</th>
+                                        <th scope="col">Coin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(() => {
+            $('#find-user').addClass('active');
+            $('tbody').load('/FindUser/Search');
+            $('form').submit((e) => {
+                e.preventDefault();
+                var name = $('#ToFind').val();
+                $('tbody').load('/FindUser/Search?ToFind=' + name);
+            });
+        });
+    </script>
+}
