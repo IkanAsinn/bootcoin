@@ -7,7 +7,7 @@
         public int CoinsObtained { get; set; }
         public int CoinsRedeemed { get; set; }
         public int CoinsRemained { get; set; }
-
+        public string Group { get; set; }
         public void CalculateCoinsRemained()
         {
             int coins = this.CoinsObtained - this.CoinsRedeemed;

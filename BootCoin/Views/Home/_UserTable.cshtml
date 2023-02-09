@@ -4,10 +4,10 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">Coin Obtained</th>
-            <th scope="col">Redeemed Coin</th>
-            <th scope="col">Coin Remained</th>
-            <th scope="col">Add Coin</th>
+            <th scope="col" class="text-center">Coin Obtained</th>
+            <th scope="col" class="text-center">Redeemed Coin</th>
+            <th scope="col" class="text-center">Coin Remained</th>
+            <th scope="col" class="text-center">Add Coin</th>
         </tr>
     </thead>
     <tbody>
@@ -18,12 +18,36 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
                     @user.ParticipantName
                 </td>
-                <td>@user.CoinsObtained</td>
-                <td>@user.CoinsRedeemed</td>
-                <td>@user.CoinsRemained</td>
-                <td>+</td>
+                <td class="text-center">@user.CoinsObtained</td>
+                <td class="text-center">@user.CoinsRedeemed</td>
+                <td class="text-center">@user.CoinsRemained</td>
+                @*<td class="text-center add-btn" data-participant="@user.ParticipantID"><i class="bi bi-plus-circle-fill fs-4"></i></td>*@
+                <td class="text-center">
+                    <button class="add-btn border-0 bg-transparent" type="button" data-bs-toggle="modal" data-bs-target="#add-coin-modal-@user.ParticipantID" data-url="@Url.Action($"AddCoins/{user.ParticipantID}")">
+                        <i class="bi bi-plus-circle-fill fs-4"></i>
+                    </button>
+                    @await Html.PartialAsync("_AddCoinsModal", user)
+                </td>
             </tr>
         }
     </tbody>
 </table>
 <button type="button" class="btn btn-warning">Add User</button>
+
+@*<script language="javascript">
+    $('.add-btn').each((index, btn) => {
+        $(btn).click(function () {
+            let participantID = $(this).data('participant');
+            $.ajax({
+                type: 'GET',
+                url: '/Home/AddCoins?ParticipantID=' + participantID,
+                success: function (data) {
+                    $('#modalLabel span').html(data.participantName);
+                    $('.modal-body').html(data);
+                    $('#add-coin-modal').modal('show');
+                    console.log(data);
+                }
+            });
+        });
+    });
+</script>*@

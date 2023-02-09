@@ -1,25 +1,27 @@
 ﻿using BootCoin.Data;
-using BootCoin.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using BootCoin.Models.DBEntities;
+using BootCoin.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BootCoin.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly SignInManager<IdentityUser> _SignInManager;
-        private readonly UserManager<IdentityUser> _UserManager;
+        private readonly SignInManager<ApplicationUser> _SignInManager;
+        private readonly UserManager<ApplicationUser> _UserManager;
 
-        public AccountController(ApplicationDbContext context, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public AccountController(ApplicationDbContext context, SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
-            this._context = context;
-            this._SignInManager = signInManager;
-            this._UserManager = userManager;
+            _context = context;
+            _SignInManager = signInManager;
+            _UserManager = userManager;
         }
 
         [HttpGet]
@@ -31,64 +33,21 @@ namespace BootCoin.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(UserLogin userLogin, string ReturnUrl)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(UserLogin userLogin, string returnUrl = null)
         {
-            var user = _context.Admins.Where(u => u.Email == userLogin.Email && u.Password == userLogin.Password).FirstOrDefault();
-            if (user != null)
+            var result = await _SignInManager.PasswordSignInAsync(userLogin.Email, userLogin.Password, false, false);
+            
+            if (result.Succeeded)
             {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.AdminName),
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.AdminID)
-                };
-
-                var claimsIdentity = new ClaimsIdentity(
-                    claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-                var authProperties = new AuthenticationProperties
-                {
-                    //AllowRefresh = <bool>,
-                    // Refreshing the authentication session should be allowed.
-
-                    //ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
-                    // The time at which the authentication ticket expires. A 
-                    // value set here overrides the ExpireTimeSpan option of 
-                    // CookieAuthenticationOptions set with AddCookie.
-
-                    //IsPersistent = true,
-                    // Whether the authentication session is persisted across 
-                    // multiple requests. Required when setting the 
-                    // ExpireTimeSpan option of CookieAuthenticationOptions 
-                    // set with AddCookie. Also required when setting 
-                    // ExpiresUtc.
-
-                    //IssuedUtc = <DateTimeOffset>,
-                    // The time at which the authentication ticket was issued.
-
-                    //RedirectUri = <string>
-                    // The full path or absolute URI to be used as an http 
-                    // redirect response value.
-                };
-
-                await HttpContext.SignInAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(claimsIdentity),
-                    authProperties);
-
-                // if there is returnUrl in params, return to the url
-                if (String.IsNullOrEmpty(ReturnUrl))
+                if (string.IsNullOrEmpty(returnUrl))
                 {
                     return RedirectToAction("Index", "Home");
                 }
 
-                return Redirect(ReturnUrl);
+                return LocalRedirect(returnUrl);
             }
-            else
-            {
-                TempData.Add("Message", "Invalid Email or Password");
-                return RedirectToAction("Login", "Account");
-            }
+            return View(userLogin);
         }
 
         [HttpGet]
@@ -100,7 +59,7 @@ namespace BootCoin.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> TempLogin(UserLogin userInfo, string ReturnUrl)
+        public async Task<IActionResult> TempLogin(Admin userInfo, string ReturnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -124,34 +83,42 @@ namespace BootCoin.Controllers
             return View();
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Register(UserLogin userInfo, string ReturnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new IdentityUser { UserName = userInfo.Email, Email = userInfo.Email };
-                var result = await _UserManager.CreateAsync(user, userInfo.Password);
-
-                if (result.Succeeded)
-                {
-                    if (String.IsNullOrEmpty(ReturnUrl))
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-
-                }
-
-                return View();
-            }
-            return View();
-        }
-
         [HttpGet]
         public IActionResult Register()
         {
-            return View();
+            RegisterModel registerModel = new RegisterModel();
+            return View(registerModel);
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterModel registerModel)
+        {
+            var user = new ApplicationUser()
+            {
+                Email = registerModel.Email,
+                UserName = registerModel.Email,
+                AdminName = registerModel.UserName
+            };
+            var result = await _UserManager.CreateAsync(user, registerModel.Password);
+
+            if (result.Succeeded)
+            {
+                // Add the user to the Admin table with AdminID "AA" + 2 digit number
+                Admin admin = new Admin();
+                admin.AdminID = "AA" + (_context.Admin.Count() + 1).ToString("D2");
+                admin.Email = registerModel.Email;
+                admin.Password = registerModel.Password;
+                admin.AdminName = registerModel.UserName;
+                _context.Admin.Add(admin);
+                _context.SaveChanges();
+                return RedirectToAction("Login", "Account");
+            }
+
+            return View(registerModel);
+        }
+
     }
 }
 

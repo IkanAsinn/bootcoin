@@ -12,16 +12,16 @@
         <div class="col-md-12 mb-3">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link bg-warning text-black fw-bold active" data-group="A">Group A</a>
+                    <a class="nav-link bg-warning text-black fw-bold active" data-group="GR01">Group A</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" data-group="B">Group B</a>
+                    <a class="nav-link text-black" data-group="GR02">Group B</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" data-group="C">Group C</a>
+                    <a class="nav-link text-black" data-group="GR03">Group C</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" data-group="D">Group D</a>
+                    <a class="nav-link text-black" data-group="GR04">Group D</a>
                 </li>
             </ul>
         </div>
@@ -33,11 +33,11 @@
                         <img src="https://images.tokopedia.net/img/cache/900/VqbcmM/2022/4/27/6417592e-58b4-4073-acd9-53ccabf8b6d0.jpg" class="img-fluid rounded" style="height: 10vh;">
                     </div>
                     <div class="col-md-2">
-                        <h4 class="card-title">Card title</h4>
+                        <h4 class="card-title">Group <span id="group-name"></span></h4>
                     </div>
                     <div class="col-md-2">
                         <p class="card-text">Total Costs</p>
-                        <h4 class="card-text">N/A</h4>
+                        <h4 class="card-text"><span id="group-total-coins"></span></h4>
                     </div>
                     <div class="col-md-2">
                         <p class="card-text">Percentage</p>
@@ -62,28 +62,36 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
 @section Scripts {
-        <script>
-            $(document).ready(function () {
-                let container = $('.card-body');
-                container.load('/Home/GetParticipants?group=A')
-                let buttons = $('.nav-link');
-                let currentButton = $('.nav-link.active');
-                $('#input-coin').addClass('active');
-                
-                buttons.each(button => {
-                    $(buttons[button]).click(function () {
-                        let group = $(this).data('group');
-                        container.load('/Home/GetParticipants?group=' + group);
-                        $(buttons[button]).addClass('active bg-warning fw-bold');
-                        $(currentButton).removeClass('active bg-warning fw-bold');
-                        currentButton = $(buttons[button]);
-                    });
+    <script>
+        $(document).ready(function () {
+            let container = $('.card-body');
+            container.load('/Home/GetParticipants?GroupID=GR01')
+            $.ajax({
+                type: "GET",
+                url: "/Home/GetData",
+                success: function(data) {
+                    $('#group-name').html(data.groupName),
+                    $('#group-total-coins').html(data.groupTotalCoins),
+                    console.log(data)
+                }
+            });
+            let buttons = $('.nav-link');
+            let currentButton = $('.nav-link.active');
+            $('#input-coin').addClass('active');
+            buttons.each(button => {
+                $(buttons[button]).click(function () {
+                    let group = $(this).data('group');
+                    container.load('/Home/GetParticipants?GroupID=' + group);
+
+                    $(buttons[button]).addClass('active bg-warning fw-bold');
+                    $(currentButton).removeClass('active bg-warning fw-bold');
+                    currentButton = $(buttons[button]);
                 });
             });
-        </script>
+        });
+    </script>
 }

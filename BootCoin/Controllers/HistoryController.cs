@@ -1,5 +1,5 @@
 ﻿using BootCoin.Data;
-using BootCoin.Models;
+using BootCoin.Models.DBEntities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,21 +21,18 @@ namespace BootCoin.Controllers
 
         public IActionResult Details()
         {
-            // select all data from Bootcoin_Transaction table
-            var transactions = _context.Bootcoin_Transactions.ToList();
+            // select all data from Transaction table
+            var transactions = _context.Transactions.ToList();
             if (transactions != null)
             {
-                List<TransactionModel> transactionList = new List<TransactionModel>();
+                List<Transaction> transactionList = new List<Transaction>();
                 foreach (var transaction in transactions)
                 {
-                    var TransactionModel = new TransactionModel()
+                    var TransactionModel = new Transaction()
                     {
                         TransactionID = transaction.TransactionID,
                         TransactionDate = transaction.TransactionDate,
                         AdminID = transaction.AdminID,
-                        AdminName = transaction.AdminName,
-                        ParticipantName = transaction.ParticipantName,
-                        Group = transaction.Group,
                         CoinsEarned = transaction.CoinsEarned
                     };
                     transactionList.Add(TransactionModel);
@@ -48,19 +45,16 @@ namespace BootCoin.Controllers
 
         public IActionResult Redeem()
         {
-            var transactions = _context.Bootcoin_Redeems.ToList();
+            var transactions = _context.Redeems.ToList();
             if (transactions != null)
             {
-                List<RedeemModel> RedeemsList = new List<RedeemModel>();
+                List<Redeem> RedeemsList = new List<Redeem>();
                 foreach (var Redeems in transactions)
                 {
-                    var RedeemModel = new RedeemModel()
+                    var RedeemModel = new Redeem()
                     {
                         TransactionID = Redeems.TransactionID,
-                        RedeemsDate = Redeems.RedeemsDate,
                         ParticipantID = Redeems.ParticipantID,
-                        ParticipantName = Redeems.ParticipantName,
-                        Group = Redeems.Group,
                         CoinsRedeemed = Redeems.CoinsRedeemed
                     };
                     RedeemsList.Add(RedeemModel);

@@ -8,10 +8,28 @@ namespace BootCoin.Controllers
     public class FindUserController : Controller
     {
         public readonly ApplicationDbContext _context;
+        public List<UsersGroupModel> participantsList = new List<UsersGroupModel>();
+
 
         public FindUserController(ApplicationDbContext context)
         {
             _context = context;
+
+            var participants = _context.Participants.ToList();
+            foreach (var participant in participants)
+            {
+                var transactions = _context.Transactions.Where(t => t.ParticipantID == participant.ParticipantID).ToList();
+                var redeemed = _context.Redeems.Where(r => r.ParticipantID == participant.ParticipantID).ToList();
+                UsersGroupModel user = new UsersGroupModel()
+                {
+                    ParticipantID = participant.ParticipantID,
+                    ParticipantName = participant.ParticipantName,
+                    CoinsObtained = transactions.Sum(t => t.CoinsEarned),
+                    CoinsRedeemed = redeemed.Sum(r => r.CoinsRedeemed),
+                };
+                user.CalculateCoinsRemained();
+                participantsList.Add(user);
+            }
         }
 
 
@@ -23,19 +41,17 @@ namespace BootCoin.Controllers
         [HttpGet]
         public IActionResult Search(string ToFind)
         {
-            var participants = _context.Bootcoin_Participants.ToList();
-            if (ToFind == null || ToFind == "")
+            if (!string.IsNullOrEmpty(ToFind))
             {
-                return PartialView("_Search", participants);
-            }
-            
-            List<ParticipantsModel> participantsList = new List<ParticipantsModel>();
-            foreach(var participant in participants)
-            {
-                if (participant.ParticipantName.ToUpper().Contains(ToFind.ToUpper()))
+                List<UsersGroupModel> users = new List<UsersGroupModel>();
+                foreach (var participant in participantsList)
                 {
-                    participantsList.Add(participant);
+                    if (participant.ParticipantName.ToUpper().Contains(ToFind.ToUpper()))
+                    {
+                        users.Add(participant);
+                    }
                 }
+                return PartialView("_Search", users);
             }
 
             return PartialView("_Search", participantsList);
