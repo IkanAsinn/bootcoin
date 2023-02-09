@@ -27,23 +27,30 @@ namespace BootCoin.Controllers
             var transactions = _context.Transactions.ToList();
             if (transactions != null)
             {
-                List<TransactionModel> transactionList = new List<TransactionModel>();
-                foreach (var transaction in transactions)
-                {
-                    Participants participant = _context.Participants.Where(p => p.ParticipantID == transaction.ParticipantID).FirstOrDefault();
-                    var TransactionModel = new TransactionModel()
-                    {
-                        TransactionID = transaction.TransactionID,
-                        TransactionDate = transaction.TransactionDate,
-                        AdminID = transaction.AdminID,
-                        AdminName = _context.Admin.Where(a => a.AdminID == transaction.AdminID).FirstOrDefault().AdminName,
-                        ParticipantID = transaction.ParticipantID,
-                        ParticipantName = participant.ParticipantName,
-                        CoinsEarned = transaction.CoinsEarned,
-                        Group = _context.Group.Where(g => g.GroupID == participant.GroupID).FirstOrDefault().GroupName
-                    };
-                    transactionList.Add(TransactionModel);
-                }
+                List<TransactionModel> transactionList = _context.Transactions
+                        .Join(_context.Participants,
+                                tr => tr.ParticipantID,
+                                p => p.ParticipantID,
+                                (tr, p) => new { tr, p })
+                        .Join(_context.Group,
+                        trp => trp.p.GroupID,
+                                g => g.GroupID,
+                                (trp, g) => new { trp, g })
+                        .Join(_context.Admin,
+                        trpg => trpg.trp.tr.AdminID,
+                                a => a.AdminID,
+                                (trpg, a) => new { trpg, a })
+                        .Select(trpga => new TransactionModel
+                        {
+                            TransactionID = trpga.trpg.trp.tr.TransactionID,
+                            TransactionDate = trpga.trpg.trp.tr.TransactionDate,
+                            ParticipantID = trpga.trpg.trp.tr.ParticipantID,
+                            ParticipantName = trpga.trpg.trp.p.ParticipantName,
+                            Group = trpga.trpg.g.GroupName,
+                            CoinsEarned = trpga.trpg.trp.tr.CoinsEarned,
+                            AdminName = trpga.a.AdminName
+                        }).ToList();
+                
                 return PartialView("_History", transactionList);
             }
 
@@ -55,20 +62,25 @@ namespace BootCoin.Controllers
             var transactions = _context.Redeems.ToList();
             if (transactions != null)
             {
-                List<RedeemModel> RedeemsList = new List<RedeemModel>();
-                foreach (var Redeems in transactions)
-                {
-                    Participants participant = _context.Participants.Where(p => p.ParticipantID == Redeems.ParticipantID).FirstOrDefault();                    var RedeemModel = new RedeemModel()
+                List<RedeemModel> RedeemsList = _context.Redeems
+                    .Join(_context.Participants,
+                    re => re.ParticipantID,
+                    p => p.ParticipantID,
+                    (re, p) => new { re, p })
+                    .Join(_context.Group,
+                    rep => rep.p.GroupID,
+                    g => g.GroupID,
+                    (rep, g) => new { rep, g })
+                    .Select(repg => new RedeemModel()
                     {
-                        TransactionID = Redeems.TransactionID,
-                        RedeemsDate = Redeems.TransactionDate,
-                        ParticipantID = Redeems.ParticipantID,
-                        ParticipantName = participant.ParticipantName,
-                        CoinsRedeemed = Redeems.CoinsRedeemed,
-                        Group = _context.Group.Where(g => g.GroupID == participant.GroupID).FirstOrDefault().GroupName
-                    };
-                    RedeemsList.Add(RedeemModel);
-                }
+                        TransactionID = repg.rep.re.TransactionID,
+                        ParticipantID = repg.rep.re.ParticipantID,
+                        ParticipantName = repg.rep.p.ParticipantName,
+                        Group = repg.g.GroupName,
+                        RedeemsDate = repg.rep.re.TransactionDate,
+                        PrizeName = repg.rep.re.PrizeName,
+                        CoinsRedeemed = repg.rep.re.CoinsRedeemed
+                    }).ToList();
                 return PartialView("_Redeem", RedeemsList);
             }
 

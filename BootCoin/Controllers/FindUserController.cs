@@ -15,17 +15,17 @@ namespace BootCoin.Controllers
         {
             _context = context;
 
-            var participants = _context.Participants.ToList();
-            foreach (var participant in participants)
-            {
-                FindUserModel user = new FindUserModel()
+            participantsList = _context.Participants
+                .Join(_context.Group,
+                p => p.GroupID,
+                g => g.GroupID,
+                (p, g) => new { p, g })
+                .Select(pg => new FindUserModel()
                 {
-                    ParticipantName = participant.ParticipantName,
-                    Group = _context.Group.Where(g => g.GroupID == participant.GroupID).Select(g => g.GroupName).FirstOrDefault(),
-                    TotalCoins = participant.TotalCoins
-                };
-                participantsList.Add(user);
-            }
+                    ParticipantName = pg.p.ParticipantName,
+                    Group = pg.g.GroupName,
+                    TotalCoins = pg.p.TotalCoins
+                }).ToList();
         }
 
 

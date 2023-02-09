@@ -15,6 +15,7 @@ namespace BootCoin.Models.DBEntities
         public Participants Participant { get; set; }
 
         public int CoinsRedeemed { get; set; }
+        public string PrizeName { get; set; }
 
     }
 }
