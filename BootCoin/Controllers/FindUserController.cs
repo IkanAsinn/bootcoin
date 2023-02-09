@@ -1,14 +1,14 @@
 ﻿using BootCoin.Data;
 using Microsoft.AspNetCore.Mvc;
 using BootCoin.Models;
-
+using BootCoin.Models.DBEntities;
 
 namespace BootCoin.Controllers
 {
     public class FindUserController : Controller
     {
         public readonly ApplicationDbContext _context;
-        public List<UsersGroupModel> participantsList = new List<UsersGroupModel>();
+        public List<FindUserModel> participantsList = new List<FindUserModel>();
 
 
         public FindUserController(ApplicationDbContext context)
@@ -18,16 +18,12 @@ namespace BootCoin.Controllers
             var participants = _context.Participants.ToList();
             foreach (var participant in participants)
             {
-                var transactions = _context.Transactions.Where(t => t.ParticipantID == participant.ParticipantID).ToList();
-                var redeemed = _context.Redeems.Where(r => r.ParticipantID == participant.ParticipantID).ToList();
-                UsersGroupModel user = new UsersGroupModel()
+                FindUserModel user = new FindUserModel()
                 {
-                    ParticipantID = participant.ParticipantID,
                     ParticipantName = participant.ParticipantName,
-                    CoinsObtained = transactions.Sum(t => t.CoinsEarned),
-                    CoinsRedeemed = redeemed.Sum(r => r.CoinsRedeemed),
+                    Group = _context.Group.Where(g => g.GroupID == participant.GroupID).Select(g => g.GroupName).FirstOrDefault(),
+                    TotalCoins = participant.TotalCoins
                 };
-                user.CalculateCoinsRemained();
                 participantsList.Add(user);
             }
         }
@@ -43,7 +39,7 @@ namespace BootCoin.Controllers
         {
             if (!string.IsNullOrEmpty(ToFind))
             {
-                List<UsersGroupModel> users = new List<UsersGroupModel>();
+                List<FindUserModel> users = new List<FindUserModel>();
                 foreach (var participant in participantsList)
                 {
                     if (participant.ParticipantName.ToUpper().Contains(ToFind.ToUpper()))

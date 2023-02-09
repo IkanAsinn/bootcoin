@@ -1,7 +1,9 @@
 ﻿using BootCoin.Data;
+using BootCoin.Models;
 using BootCoin.Models.DBEntities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BootCoin.Controllers
 {
@@ -25,15 +27,20 @@ namespace BootCoin.Controllers
             var transactions = _context.Transactions.ToList();
             if (transactions != null)
             {
-                List<Transaction> transactionList = new List<Transaction>();
+                List<TransactionModel> transactionList = new List<TransactionModel>();
                 foreach (var transaction in transactions)
                 {
-                    var TransactionModel = new Transaction()
+                    Participants participant = _context.Participants.Where(p => p.ParticipantID == transaction.ParticipantID).FirstOrDefault();
+                    var TransactionModel = new TransactionModel()
                     {
                         TransactionID = transaction.TransactionID,
                         TransactionDate = transaction.TransactionDate,
                         AdminID = transaction.AdminID,
-                        CoinsEarned = transaction.CoinsEarned
+                        AdminName = _context.Admin.Where(a => a.AdminID == transaction.AdminID).FirstOrDefault().AdminName,
+                        ParticipantID = transaction.ParticipantID,
+                        ParticipantName = participant.ParticipantName,
+                        CoinsEarned = transaction.CoinsEarned,
+                        Group = _context.Group.Where(g => g.GroupID == participant.GroupID).FirstOrDefault().GroupName
                     };
                     transactionList.Add(TransactionModel);
                 }
@@ -48,14 +55,17 @@ namespace BootCoin.Controllers
             var transactions = _context.Redeems.ToList();
             if (transactions != null)
             {
-                List<Redeem> RedeemsList = new List<Redeem>();
+                List<RedeemModel> RedeemsList = new List<RedeemModel>();
                 foreach (var Redeems in transactions)
                 {
-                    var RedeemModel = new Redeem()
+                    Participants participant = _context.Participants.Where(p => p.ParticipantID == Redeems.ParticipantID).FirstOrDefault();                    var RedeemModel = new RedeemModel()
                     {
                         TransactionID = Redeems.TransactionID,
+                        RedeemsDate = Redeems.TransactionDate,
                         ParticipantID = Redeems.ParticipantID,
-                        CoinsRedeemed = Redeems.CoinsRedeemed
+                        ParticipantName = participant.ParticipantName,
+                        CoinsRedeemed = Redeems.CoinsRedeemed,
+                        Group = _context.Group.Where(g => g.GroupID == participant.GroupID).FirstOrDefault().GroupName
                     };
                     RedeemsList.Add(RedeemModel);
                 }
