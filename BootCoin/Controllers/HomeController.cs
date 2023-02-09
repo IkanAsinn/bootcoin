@@ -32,21 +32,24 @@ namespace BootCoin.Controllers
         [HttpGet]
         public IActionResult GetParticipants(string GroupID)
         {
-            var participants = _context.Participants.Where(p => p.GroupID == GroupID).ToList();
-            List<UsersGroupModel> users = new List<UsersGroupModel>();
-            
-            foreach (var participant in participants)
-            {
-                UsersGroupModel user = new UsersGroupModel()
+            var users = _context.Participants
+                .Join(_context.Group,
+                p => p.GroupID,
+                g => g.GroupID,
+                (p, g) => new { p, g })
+                .Where(pg => pg.p.GroupID == GroupID)
+                .Select(pg => new UsersGroupModel()
                 {
-                    ParticipantID = participant.ParticipantID,
-                    ParticipantName = participant.ParticipantName,
-                    CoinsObtained = participant.CoinsObtained,
-                    CoinsRedeemed = participant.CoinsRedeemed,
-                    CoinsRemained = participant.TotalCoins
-                };
-                users.Add(user);
-            }
+                    ParticipantID = pg.p.ParticipantID,
+                    ParticipantName = pg.p.ParticipantName,
+                    CoinsObtained = pg.p.CoinsObtained,
+                    CoinsRedeemed = pg.p.CoinsRedeemed,
+                    CoinsRemained = pg.p.TotalCoins,
+                    Group = pg.g.GroupName,
+                    TotalCoins = pg.g.TotalCoins,
+                    TotalMember = pg.g.TotalMember,
+                    Rank = pg.g.GroupRank
+                }).ToList();
             return PartialView("_UserTable", users);
         }
 
@@ -77,21 +80,27 @@ namespace BootCoin.Controllers
         [HttpPost]
         public IActionResult AddCoins(string ParticipantID, int coinInput)
         {
-            Participants user = _context.Participants.Where(u => u.ParticipantID == ParticipantID).FirstOrDefault();
-            Admin currentAdmin = _context.Admin.Where(a => a.AdminID == User.FindFirstValue(ClaimTypes.NameIdentifier)).FirstOrDefault();
-            Group group = _context.Group.Where(g => g.GroupID == user.GroupID).FirstOrDefault();
+            var participant = _context.Participants.Where(p => p.ParticipantID == ParticipantID).FirstOrDefault();
+            var admin = _context.Admin.Where(a => a.Email == User.Identity.Name).FirstOrDefault();
+            var group = _context.Group.Where(g => g.GroupID == participant.GroupID).FirstOrDefault();
+
             Transaction newTransaction = new Transaction()
             {
+                AdminID = admin.AdminID,
+                Admin = admin,
                 TransactionID = "ET" + (_context.Transactions.Count() + 1),
-                AdminID = currentAdmin.AdminID,
-                ParticipantID = user.ParticipantID,
-                CoinsEarned = coinInput
+                ParticipantID = participant.ParticipantID,
+                CoinsEarned = coinInput,
+                TransactionDate = DateTime.Now
             };
-            user.CoinsObtained += coinInput;
-            user.TotalCoins += coinInput;
+
+            participant.CoinsObtained += coinInput;
+            participant.TotalCoins += coinInput;
+            _context.Participants.Update(participant);
+
             group.TotalCoins += coinInput;
-            _context.Update(group);
-            _context.Update(user);
+            _context.Group.Update(group);
+
             _context.Transactions.Add(newTransaction);
             _context.SaveChanges();
             return RedirectToAction("Index");

@@ -8,17 +8,8 @@
         public int CoinsRedeemed { get; set; }
         public int CoinsRemained { get; set; }
         public string Group { get; set; }
-        public void CalculateCoinsRemained()
-        {
-            int coins = this.CoinsObtained - this.CoinsRedeemed;
-            if (coins < 0)
-            {
-                this.CoinsRemained = 0;
-            }
-            else
-            {
-                this.CoinsRemained = coins;
-            }
-        }
+        public int TotalCoins { get; set; }
+        public int TotalMember { get; set; }
+        public int Rank { get; set; }
     }
 }
