@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xW+W431oQFV6joeATKxFxUGu5uwtPpVINSEX+VESNvQ=",
+  "Hash": "VB5eXnvmRmw/9ZNdq6Z5nDPx9v1cWrRE+vnOO0NuOKs=",
   "Source": "BootCoin",
   "BasePath": "_content/BootCoin",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\Add File.png",
+      "SourceId": "BootCoin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\",
+      "BasePath": "_content/BootCoin",
+      "RelativePath": "images/Add File.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Add File.png"
+    },
+    {
       "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\background.png",
       "SourceId": "BootCoin",
       "SourceType": "Discovered",
@@ -1256,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\user.png"
+    },
+    {
+      "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png",
+      "SourceId": "BootCoin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\",
+      "BasePath": "_content/BootCoin",
+      "RelativePath": "images/user-photo/b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\user-photo\\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png"
     },
     {
       "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\js\\site.js",

@@ -16,61 +16,17 @@
     </div>
 
     <div class="main-content">
-        <form method="post" action="" enctype="multipart/form-data">
-        <div class="row justify-content-center p-0">
-            <div class="col">
-                <div class="card m-3" style="min-width: 20vw; min-height: 45vh;">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" style="height: 20vh;">
-
-                        <div class="h5 fw-bold m-2">
-                                @User.FindFirst("AdminName").Value
-                        </div>
-
-                        <label for="image" class="btn btn-warning">Upload Photo</label>
-                        <input type="file" name="image" id="image" style="display:none" />
-
-                    </div>
-                </div>
-            </div>
+        <partial name="_ChangePhoto" />
             <div class="col">
                 <div class="card m-3" style="min-width: 70vw; min-height: 70vh;">
                     <div class="card-body m-3">
-                        <div class="h4 fw-bold border-bottom border-dark border-3 mb-3">
-                            Edit Profile
-                        </div>
+                        <partial name="_ChangeInfo" />
 
-                          <div class="h6 fw-bold mb-3" >
-                            <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="name" value="@User.FindFirst("AdminName").Value" required>
-                          </div>
-
-                          <div class="h6 fw-bold mb-4">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="email" value="@User.Identity.Name" required>
-                          </div>
-
-                          <div class="h4 fw-bold mb-2">
-                             Change Password
-                          </div>
-
-                          <div class="h6 fw-bold mb-3">
-                            <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="password">
-                          </div>
-
-                          <div class="h6 fw-bold mb-3">
-                            <label for="newpassword" class="form-label">New Password</label>
-                                <input type="password" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="newpassword" >
-                          </div>
-
-                            <button type="submit" class="btn btn-warning position-absolute bottom-0 end-0 m-3">Confirm Change</button>
-                    
+                        <partial name="_ChangePassword" />
                     </div>
                 </div>
             </div>
         </div>
-        </form>
 
         <div class="row">
             <div class="fw-bold text-white m-3" style="font-size: 1.2em">

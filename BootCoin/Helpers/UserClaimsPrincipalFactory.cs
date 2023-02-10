@@ -17,6 +17,7 @@ namespace BootCoin.Helpers
         {
             var identity = await base.GenerateClaimsAsync(user);
             identity.AddClaim(new Claim("AdminName", user.AdminName));
+            identity.AddClaim(new Claim("ImagePath", user.ImagePath));
             return identity;
         }
     }

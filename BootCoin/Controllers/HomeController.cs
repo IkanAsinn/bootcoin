@@ -48,7 +48,9 @@ namespace BootCoin.Controllers
                     Group = pg.g.GroupName,
                     TotalCoins = pg.g.TotalCoins,
                     TotalMember = pg.g.TotalMember,
-                    Rank = pg.g.GroupRank
+                    Rank = pg.g.GroupRank,
+                    ImagePath = pg.p.ImagePath,
+                    GroupID = pg.p.GroupID
                 }).ToList();
             return PartialView("_UserTable", users);
         }

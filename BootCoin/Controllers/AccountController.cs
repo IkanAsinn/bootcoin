@@ -53,7 +53,7 @@ namespace BootCoin.Controllers
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await _SignInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
 

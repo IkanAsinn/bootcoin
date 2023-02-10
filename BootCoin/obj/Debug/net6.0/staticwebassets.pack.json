@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\Add File.png",
+      "PackagePath": "staticwebassets\\images\\Add File.png"
+    },
+    {
       "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\Globe.png",
       "PackagePath": "staticwebassets\\images\\Globe.png"
     },
@@ -43,6 +47,10 @@
     {
       "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\profilebg.png",
       "PackagePath": "staticwebassets\\images\\profilebg.png"
+    },
+    {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png",
+      "PackagePath": "staticwebassets\\images\\user-photo\\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png"
     },
     {
       "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user.png",

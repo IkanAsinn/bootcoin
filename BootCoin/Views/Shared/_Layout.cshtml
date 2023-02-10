@@ -21,9 +21,17 @@
                         <span>Name</span>
                         <span id="username">@User.FindFirst("AdminName").Value</span>
                     </div>
-                    <a asp-action="Index" asp-area="" asp-controller="Profile">
-                        <img src="/images/user.png" alt="User Profile Picture" asp-append-version="true" />
-                    </a>
+
+                    <div class="dropdown">
+                        <a class="bg-transparent" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="@User.FindFirst("ImagePath").Value" alt="User Profile Picture" asp-append-version="true" width="50px"/>
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" asp-action="Index" asp-controller="Profile">Profile</a></li>
+                            <li><a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
