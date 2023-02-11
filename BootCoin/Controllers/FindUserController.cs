@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using BootCoin.Models;
 using BootCoin.Models.DBEntities;
 using System.Dynamic;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BootCoin.Controllers
 {
@@ -48,12 +49,12 @@ namespace BootCoin.Controllers
             }
 
 
-            int pCount = (users.Count() > 0) ? users.Count() : participantsList.Count();
-            int pageSize = (users.Count() > 0 && users.Count() < 5) ? users.Count() : 5;
+            int pCount = (!users.IsNullOrEmpty()) ? users.Count() : participantsList.Count();
+            int pageSize = (!users.IsNullOrEmpty() && users.Count() < 5) ? users.Count() : 5;
             Pager pager = new Pager(pCount, page, pageSize);
             int pSkip = (page - 1) * pageSize;
 
-            if (users.Count() > 0)
+            if (!users.IsNullOrEmpty())
             {
                 for (int i = pSkip; i < pSkip + pageSize; i++)
                 {

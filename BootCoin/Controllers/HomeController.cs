@@ -2,6 +2,7 @@
 using BootCoin.Models;
 using BootCoin.Models.DBEntities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -15,13 +16,15 @@ namespace BootCoin.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         public static int groupTotalCoins;
         public static string groupName;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _logger = logger;
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -106,6 +109,43 @@ namespace BootCoin.Controllers
             _context.Transactions.Add(newTransaction);
             _context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUser(AddUserModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                string folder = "images/user-photo/";
+                folder += Guid.NewGuid().ToString() + user.Image.FileName;
+                string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+
+                await user.Image.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+
+                var group = _context.Group.Where(g => g.GroupID == user.GroupID).FirstOrDefault();
+
+                Participants newParticipant = new Participants()
+                {
+                    ParticipantID = group.GroupName + (_context.Participants.Count() + 1).ToString("D2"),
+                    ParticipantName = user.ParticipantName,
+                    CoinsObtained = 0,
+                    CoinsRedeemed = 0,
+                    Group = group,
+                    GroupID = group.GroupID,
+                    ImagePath = "/" + folder,
+                    TotalCoins = 0
+                };
+
+                group.TotalMember += 1;
+                _context.Group.Update(group);
+
+                _context.Participants.Add(newParticipant);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

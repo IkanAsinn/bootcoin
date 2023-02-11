@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\FindUser\Index.cshtml~RF274410.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\user-photo\" />
   </ItemGroup>
