@@ -53,8 +53,20 @@
       "PackagePath": "staticwebassets\\images\\profilebg.png"
     },
     {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\06bda819-ca5d-47af-8470-001bf5719549wenomechainsama.png",
+      "PackagePath": "staticwebassets\\images\\user-photo\\06bda819-ca5d-47af-8470-001bf5719549wenomechainsama.png"
+    },
+    {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\952250cd-8575-46bd-8ee1-d79af0046a4agordon.jpg",
+      "PackagePath": "staticwebassets\\images\\user-photo\\952250cd-8575-46bd-8ee1-d79af0046a4agordon.jpg"
+    },
+    {
       "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png",
       "PackagePath": "staticwebassets\\images\\user-photo\\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png"
+    },
+    {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\eeabe5eb-5f90-4cb7-af39-92e0f0426978menggokil-300x279.jpg",
+      "PackagePath": "staticwebassets\\images\\user-photo\\eeabe5eb-5f90-4cb7-af39-92e0f0426978menggokil-300x279.jpg"
     },
     {
       "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user.png",

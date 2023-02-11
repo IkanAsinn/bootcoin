@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LG0mydQJ9bIyO/Xdnnl+S3tvjnPppWMXu//SKoHAFX4=",
+  "Hash": "rixZj1Uh/LplpJVY3N1vxM2twSRCaA8WNxRCinQ3DA4=",
   "Source": "BootCoin",
   "BasePath": "_content/BootCoin",
   "Mode": "Default",
@@ -1292,6 +1292,40 @@
       "OriginalItemSpec": "wwwroot\\images\\user.png"
     },
     {
+      "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\06bda819-ca5d-47af-8470-001bf5719549wenomechainsama.png",
+      "SourceId": "BootCoin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\",
+      "BasePath": "_content/BootCoin",
+      "RelativePath": "images/user-photo/06bda819-ca5d-47af-8470-001bf5719549wenomechainsama.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\user-photo\\06bda819-ca5d-47af-8470-001bf5719549wenomechainsama.png"
+    },
+    {
+      "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\952250cd-8575-46bd-8ee1-d79af0046a4agordon.jpg",
+      "SourceId": "BootCoin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\",
+      "BasePath": "_content/BootCoin",
+      "RelativePath": "images/user-photo/952250cd-8575-46bd-8ee1-d79af0046a4agordon.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\user-photo\\952250cd-8575-46bd-8ee1-d79af0046a4agordon.jpg"
+    },
+    {
       "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png",
       "SourceId": "BootCoin",
       "SourceType": "Discovered",
@@ -1307,6 +1341,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\user-photo\\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png"
+    },
+    {
+      "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\user-photo\\eeabe5eb-5f90-4cb7-af39-92e0f0426978menggokil-300x279.jpg",
+      "SourceId": "BootCoin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\",
+      "BasePath": "_content/BootCoin",
+      "RelativePath": "images/user-photo/eeabe5eb-5f90-4cb7-af39-92e0f0426978menggokil-300x279.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\user-photo\\eeabe5eb-5f90-4cb7-af39-92e0f0426978menggokil-300x279.jpg"
     },
     {
       "Identity": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\js\\site.js",

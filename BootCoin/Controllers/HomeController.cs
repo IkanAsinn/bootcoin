@@ -2,12 +2,10 @@
 using BootCoin.Models;
 using BootCoin.Models.DBEntities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using System.Diagnostics;
-using System.Security.Claims;
 
 namespace BootCoin.Controllers
 {
@@ -116,23 +114,27 @@ namespace BootCoin.Controllers
         {
             if (!string.IsNullOrEmpty(user.ParticipantName) && !string.IsNullOrEmpty(user.GroupID))
             {
-                string folder = "images/user-photo/";
-                folder += Guid.NewGuid().ToString() + user.Image.FileName;
-                string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                string folder = String.Empty;
+                if (user.Image != null)
+                {
+                    folder = "images/user-photo/";
+                    folder += Guid.NewGuid().ToString() + user.Image.FileName;
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                    await user.Image.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                }
 
-                await user.Image.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
 
                 var group = _context.Group.Where(g => g.GroupID == user.GroupID).FirstOrDefault();
 
                 Participants newParticipant = new Participants()
                 {
-                    ParticipantID = group.GroupName + (_context.Participants.Count() + 1).ToString("D2"),
+                    ParticipantID = group.GroupName + (_context.Participants.Where(p => p.GroupID == user.GroupID).Count() + 1).ToString("D2"),
                     ParticipantName = user.ParticipantName,
                     CoinsObtained = 0,
                     CoinsRedeemed = 0,
                     Group = group,
                     GroupID = group.GroupID,
-                    ImagePath = "/" + folder,
+                    ImagePath = (folder.IsNullOrEmpty()) ? "/images/user.png" : "/" + folder,
                     TotalCoins = 0
                 };
 
