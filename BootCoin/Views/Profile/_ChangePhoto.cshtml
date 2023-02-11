@@ -9,10 +9,12 @@
 
                 <div class="h5 fw-bold m-2">@User.FindFirst("AdminName").Value</div>
 
-                <label for="image" class="btn btn-warning">Upload Photo</label>
-                <input id="image" asp-for="Photo" style="display:none" />
+                 <div class="d-flex">
+                    <button type="submit" class="btn btn-warning">Upload Photo</button>
+                     <label for="image"> <img src="~/images/Add File.png"> </label>
+                    <input id="image" asp-for="Photo" style="display:none" />
 
-                <button type="submit">Upload!!</button>
+                 </div>
             </div>
         </div>
     </div>

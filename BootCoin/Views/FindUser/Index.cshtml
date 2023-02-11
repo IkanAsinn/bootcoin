@@ -2,25 +2,25 @@
     ViewData["Title"] = "Find User";
 }
 
-<div class="main-container p-4">
-    <div class="row">
-        <div class="col-md-12 mb-3">
-            <p class="h2 fw-bold">Find User</p>
-        </div>
+<div class="col-md-12 my-2 bg-light bg-light py-3 px-4">
+    <p class="h2 fw-bold">Find User</p>
+</div>
 
+<div class="main-container p-4">
         <div class="col-md-12 mb-3">
-            <form>
-                <div class="input-group mb-3" >
-                     <input type="text" class="form-control" placeholder="Input Name" name="ToFind" id="ToFind">
-                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2" asp-controller="FindUser" asp-action="search">
-                         <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" class="img-fluid my-auto" style="height: 2.5vh;" alt="search"/>
+            <form class="d-flex align-items-center justify-content-center">
+                <div class="input-group mb-3 border border-dark border-2 rounded-pill" style="width: 40vw;">
+                     <input type="text" class="form-control rounded-pill text-center" style="border: none; background:none" placeholder="Input Name" name="ToFind" id="ToFind">
+                     <button class="btn " type="submit" id="button-addon2" asp-controller="FindUser" asp-action="search">
+                     <img src="/images/Search.png" class="img-fluid my-auto" style="height: 3vh;" alt="search" />
                      </button>
                 </div>
             </form>
         </div>
 
-        <div class="content"></div>
-    </div>
+        <div class="content">
+
+        </div>
 </div>
 
 @section Scripts {

@@ -3,24 +3,28 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "History";
 }
 
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-12 mb-3">
-            <p class="h2 fw-bold">History</p>
-        </div>
-    </div>
 
+<div class="col-md-12 my-2 bg-light bg-light py-3 px-4">
+    <p class="h2 fw-bold">History</p>
+</div>
+
+<div class="container p-4">
     <div class="col-md-12 mb-3">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link text-black active bg-warning fw-bold history">Added Coin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-black fw-bold redeems">Redeemed Coin</a>
-            </li>
-        </ul>
+        <div class="d-flex justify-content-between">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link text-black active bg-warning fw-bold history">Added Coin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black fw-bold redeems">Redeemed Coin</a>
+                </li>
+            </ul>
+            <a class="btn btn-success" asp-controller="History" asp-action="ExportExcel">Download Worksheet</a>
+        </div>
+        
     </div>
     
     <div class="content">

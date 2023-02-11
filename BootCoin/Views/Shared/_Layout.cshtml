@@ -12,9 +12,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow position-fixed w-100">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow position-fixed w-100 p-0">
             <div class="container-fluid px-4">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/images/logo.png" asp-append-version="true"/></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/images/logo.png" asp-append-version="true" style="height: 8vh;"/></a>
                 
                 <div class="user-profile">
                     <div class="user-info">
@@ -51,7 +51,7 @@
                     </ul>
                 </aside>
             </div>
-            <div class="col-10 main-container">
+            <div class="col-10 main-container pe-0">
                 <main role="main">
                     @RenderBody()
                 </main>

@@ -7,13 +7,15 @@
 
     <div class="h6 fw-bold mb-3" >
     <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="name" value="@User.FindFirst("AdminName").Value" asp-for="Name">
+        <input type="text" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="name" value="@User.FindFirst("AdminName").Value" asp-for="Name" required>
     </div>
 
-    <div class="h6 fw-bold mb-4">
+    <div class="h6 fw-bold mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="email" value="@User.Identity.Name" asp-for="Email">
+        <input type="email" class="form-control border-dark border-2 bg-light" style="width: 50vw;" id="email" value="@User.Identity.Name" asp-for="Email" required>
     </div>
 
-    <button type="submit" class="btn btn-warning position-absolute bottom-0 end-0 m-3">Confirm Change</button>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-warning m-3">Confirm Change</button>
+    </div>
 </form>

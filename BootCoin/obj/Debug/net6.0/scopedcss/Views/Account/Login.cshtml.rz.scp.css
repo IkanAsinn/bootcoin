@@ -1,6 +1,6 @@
 .wrapper[b-pc4lrawaxb] {
     height: 100vh;
-    background: linear-gradient(115deg, rgba(246, 234, 123, .9), rgba(85, 34, 204, .9)), url('/images/background.png');
+    background: linear-gradient(150deg, rgba(246, 234, 123, .7), rgba(85, 34, 204, .9)), url('/images/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8,17 +8,14 @@
 }
 
 .logo[b-pc4lrawaxb]  img {
-    width: 300px;
-}
-
-.logo p[b-pc4lrawaxb] {
-    font-size: 32px;
+    width: 18vw;
 }
 
 .form-wrapper[b-pc4lrawaxb] {
     background-color: rgba(45, 45, 45, 0.5);
-    padding: 40px;
+    padding: 40px 100px;
     height: 95vh;
+    width: 50vw;
     backdrop-filter: blur(10px);
 }
 

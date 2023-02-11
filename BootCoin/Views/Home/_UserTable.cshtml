@@ -2,28 +2,31 @@
 @using BootCoin.Models
 
 <div class="col-md-12 mb-3">
-    <div class="card mb-3 p-3">
+    <div class="card mb-3 p-3 shadow-sm">
         <div class="row align-items-center">
             <div class="col-md-2">
-                <img src="https://images.tokopedia.net/img/cache/900/VqbcmM/2022/4/27/6417592e-58b4-4073-acd9-53ccabf8b6d0.jpg" class="img-fluid rounded" style="height: 10vh;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1829/1829552.png" class="img-fluid rounded" style="height: 10vh;">
             </div>
             <div class="col-md-2">
                 <h4 class="card-title">Group <span id="group-name">@Model.FirstOrDefault().Group</span></h4>
             </div>
-            <div class="col-md-2">
-                <p class="card-text">Total Costs</p>
-                <h4 class="card-text"><span id="group-total-coins">@Model.FirstOrDefault().TotalCoins</span></h4>
+            <div class="col-md-2 align-items-center">
+                <p class="card-text fw-bold fs-6 text-muted">Total Coin</p>
+                <h4 class="card-text">
+                    <img src="/images/logo2.png" style="height: 5vh;" alt="logo" asp-append-version="true" />
+                    <span id="group-total-coins">@Model.FirstOrDefault().TotalCoins</span>
+                </h4>
             </div>
             <div class="col-md-2">
-                <p class="card-text">Percentage</p>
+                <p class="card-text fw-bold fs-6 text-muted">Percentage</p>
                 <h4 class="card-text">N/A</h4>
             </div>
             <div class="col-md-2">
-                <p class="card-text">Total Member</p>
+                <p class="card-text fw-bold fs-6 text-muted">Total Member</p>
                 <h4 class="card-text">@Model.FirstOrDefault().TotalMember</h4>
             </div>
             <div class="col-md-2">
-                <p class="card-text">Rank</p>
+                <p class="card-text fw-bold fs-6 text-muted">Rank</p>
                 <h4 class="card-text">@Model.FirstOrDefault().Rank</h4>
             </div>
         </div>
@@ -64,9 +67,10 @@
                     }
                 </tbody>
             </table>
-
-            <button class="bg-warning" type="button" data-bs-toggle="modal" data-bs-target="#add-user-@Model.FirstOrDefault().GroupID">Add User</button>
+            
+            <button class="bg-warning fw-bold px-4 py-2 rounded" type="button" style="border: none;" data-bs-toggle="modal" data-bs-target="#add-user-@Model.FirstOrDefault().GroupID"><i class="bi bi-plus-circle-fill fs-6"></i> Add User</button>
             @await Html.PartialAsync("_AddUser", new AddUserModel() {GroupID = Model.FirstOrDefault().GroupID, GroupName = Model.FirstOrDefault().Group})
+
         </div>
     </div>
 </div>

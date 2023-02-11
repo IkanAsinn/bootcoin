@@ -99,7 +99,8 @@ namespace BootCoin.Controllers
             {
                 Email = registerModel.Email,
                 UserName = registerModel.Email,
-                AdminName = registerModel.UserName
+                AdminName = registerModel.UserName,
+                ImagePath = "/images/user.png"
             };
             var result = await _UserManager.CreateAsync(user, registerModel.Password);
 
@@ -111,6 +112,7 @@ namespace BootCoin.Controllers
                 admin.Email = registerModel.Email;
                 admin.Password = registerModel.Password;
                 admin.AdminName = registerModel.UserName;
+                admin.ImagePath = "/images/user.png";
                 _context.Admin.Add(admin);
                 _context.SaveChanges();
                 return RedirectToAction("Login", "Account");

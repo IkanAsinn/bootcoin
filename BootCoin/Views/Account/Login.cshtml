@@ -10,10 +10,10 @@
         <div class="col-4">
             <div class="logo">
                 <img src="/images/logo.png" alt="logo" asp-append-version="true" />
-                <p class="fw-bold">Coins For The Strong</p>
+                <p class="fs-4">Coins For The Strong</p>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-7">
             <div class="form-wrapper rounded d-flex flex-column justify-content-center">
                 <form method="post" asp-action="Login" asp-controller="Account">
                     @if (TempData.Any())
@@ -24,12 +24,12 @@
                     }
                     <h1 class="text-white display-3 align-text-left mb-5">Sign-In</h1>
                     <div class="form-group">
-                        <label asp-for="Email"></label>
-                        <input class="form-control" asp-for="Email" />
+                        <label asp-for="Email" ></label>
+                        <input class="form-control" asp-for="Email" required />
                     </div>
                     <div class="form-group">
                         <label asp-for="Password"></label>
-                        <input type="password" class="form-control" asp-for="Password"/>
+                        <input type="password" class="form-control" asp-for="Password" required/>
                     </div>
                     <button type="submit" class="btn btn-login mx-auto d-block">Sign In</button>
                     <p class="text-center mt-3 text-white">Don’t have an account? <a class="text-white fw-bold text-decoration-none" asp-area="" asp-controller="Account" asp-action="Register">Register</a></p>
