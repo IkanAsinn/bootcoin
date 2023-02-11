@@ -106,6 +106,8 @@ namespace BootCoin.Controllers
 
             _context.Transactions.Add(newTransaction);
             _context.SaveChanges();
+
+            UpdateGroupRank();
             return RedirectToAction("Index");
         }
 
@@ -148,6 +150,19 @@ namespace BootCoin.Controllers
             }
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public void UpdateGroupRank()
+        {
+            var groups = _context.Group.OrderByDescending(g => g.TotalCoins).ToList();
+            int currentRank = 1;
+            foreach(var group in groups)
+            {
+                group.GroupRank = currentRank++;
+                _context.Group.Update(group);
+            }
+
+            _context.SaveChanges();
         }
     }
 }

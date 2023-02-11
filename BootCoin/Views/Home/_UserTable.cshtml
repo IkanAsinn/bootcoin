@@ -1,6 +1,10 @@
 ﻿@model List<UsersGroupModel>
 @using BootCoin.Models
 
+@{
+    var percentage = ((Convert.ToDecimal(Model.FirstOrDefault().TotalCoins) / 8000) * 100).ToString("0.00");
+}
+
 <div class="col-md-12 mb-3">
     <div class="card mb-3 p-3 shadow-sm">
         <div class="row align-items-center">
@@ -14,12 +18,12 @@
                 <p class="card-text fw-bold fs-6 text-muted">Total Coin</p>
                 <h4 class="card-text">
                     <img src="/images/logo2.png" style="height: 5vh;" alt="logo" asp-append-version="true" />
-                    <span id="group-total-coins">@Model.FirstOrDefault().TotalCoins</span>
+                    <span id="group-total-coins">@Model.FirstOrDefault().TotalCoins / 8000</span>
                 </h4>
             </div>
             <div class="col-md-2">
                 <p class="card-text fw-bold fs-6 text-muted">Percentage</p>
-                <h4 class="card-text">N/A</h4>
+                <h4 class="card-text">@percentage%</h4>
             </div>
             <div class="col-md-2">
                 <p class="card-text fw-bold fs-6 text-muted">Total Member</p>
