@@ -1,6 +1,7 @@
 ﻿using BootCoin.Data;
 using BootCoin.Models;
 using BootCoin.Models.DBEntities;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -85,6 +86,71 @@ namespace BootCoin.Controllers
             }
 
             return PartialView("_Redeem", null);
+        }
+
+        public IActionResult ExportExcel()
+        {
+            using(var workbook = new XLWorkbook())
+            {
+                var worksheet1 = workbook.Worksheets.Add("Transaction");
+                var currentRow = 1;
+                List<Transaction> transactions = _context.Transactions.ToList();
+
+                #region Header
+                worksheet1.Cell(currentRow, 1).Value = "ID";
+                worksheet1.Cell(currentRow, 2).Value = "Date";
+                worksheet1.Cell(currentRow, 3).Value = "AdminID";
+                worksheet1.Cell(currentRow, 4).Value = "ParticipantID";
+                worksheet1.Cell(currentRow, 5).Value = "CoinsEarned";
+                #endregion
+
+                #region Body
+                foreach (var transaction in transactions)
+                {
+                    currentRow++;
+                    worksheet1.Cell(currentRow, 1).Value = transaction.TransactionID;
+                    worksheet1.Cell(currentRow, 2).Value = transaction.TransactionDate;
+                    worksheet1.Cell(currentRow, 3).Value = transaction.AdminID;
+                    worksheet1.Cell(currentRow, 4).Value = transaction.ParticipantID;
+                    worksheet1.Cell(currentRow, 5).Value = transaction.CoinsEarned;
+                }
+                #endregion
+
+                var worksheet2 = workbook.Worksheets.Add("Redeem");
+                currentRow = 1;
+                List<Redeem> redeems = _context.Redeems.ToList();
+
+                #region Header
+                worksheet2.Cell(currentRow, 1).Value = "ID";
+                worksheet2.Cell(currentRow, 2).Value = "Date";
+                worksheet2.Cell(currentRow, 3).Value = "ParticipantID";
+                worksheet2.Cell(currentRow, 4).Value = "Coins Redeemed";
+                worksheet2.Cell(currentRow, 5).Value = "Prize Name";
+                #endregion
+
+                #region
+                foreach(var redeem in redeems)
+                {
+                    currentRow++;
+                    worksheet2.Cell(currentRow, 1).Value = redeem.TransactionID;
+                    worksheet2.Cell(currentRow, 2).Value = redeem.TransactionDate;
+                    worksheet2.Cell(currentRow, 3).Value = redeem.ParticipantID;
+                    worksheet2.Cell(currentRow, 4).Value = redeem.CoinsRedeemed;
+                    worksheet2.Cell(currentRow, 5).Value = redeem.PrizeName;
+                }
+                #endregion
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    return File(content,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "History.xlsx"
+                        );
+                }
+            }
         }
     }
 }
