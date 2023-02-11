@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
+      "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\logo2.png",
+      "PackagePath": "staticwebassets\\images\\logo2.png"
+    },
+    {
       "Id": "D:\\C# Projects\\BootCoin\\BootCoin\\wwwroot\\images\\profilebg.png",
       "PackagePath": "staticwebassets\\images\\profilebg.png"
     },

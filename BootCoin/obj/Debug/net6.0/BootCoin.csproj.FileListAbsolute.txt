@@ -610,3 +610,10 @@ C:\Users\hiray\OneDrive\Desktop\Local Repository\bootcoin\BootCoin\bin\Debug\net
 C:\Users\hiray\OneDrive\Desktop\Local Repository\bootcoin\BootCoin\bin\Debug\net6.0\SixLabors.Fonts.dll
 C:\Users\hiray\OneDrive\Desktop\Local Repository\bootcoin\BootCoin\bin\Debug\net6.0\System.IO.Packaging.dll
 C:\Users\hiray\OneDrive\Desktop\Local Repository\bootcoin\BootCoin\bin\Debug\net6.0\XLParser.dll
+D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\ClosedXML.dll
+D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\ExcelNumberFormat.dll
+D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\Irony.dll
+D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\SixLabors.Fonts.dll
+D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\System.IO.Packaging.dll
+D:\C# Projects\BootCoin\BootCoin\bin\Debug\net6.0\XLParser.dll

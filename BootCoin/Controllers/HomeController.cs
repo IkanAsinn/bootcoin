@@ -114,7 +114,7 @@ namespace BootCoin.Controllers
         [HttpPost]
         public async Task<IActionResult> AddUser(AddUserModel user)
         {
-            if (ModelState.IsValid)
+            if (!string.IsNullOrEmpty(user.ParticipantName) && !string.IsNullOrEmpty(user.GroupID))
             {
                 string folder = "images/user-photo/";
                 folder += Guid.NewGuid().ToString() + user.Image.FileName;
