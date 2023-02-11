@@ -1,8 +1,4 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     ViewData["Title"] = "Find User";
 }
 
@@ -23,33 +19,7 @@
             </form>
         </div>
 
-        <div class="col-md-12 mb-3">
-
-            <div class="card">
-                <div class="card-title">
-                    <p class="h2 fw-bold ms-3 mt-3">User List</p>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Group</th>
-                                        <th scope="col">Coin</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+        <div class="content"></div>
     </div>
 </div>
 
@@ -57,11 +27,51 @@
     <script>
         $(document).ready(() => {
             $('#find-user').addClass('active');
-            $('tbody').load('/FindUser/Search');
+            let container = $('.content');
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("search", "FindUser")',
+                data: {
+                    ToFind: "",
+                    page: 1
+                },
+                success: (data) => {
+                    container.html(data);
+                }
+            })
+            
             $('form').submit((e) => {
                 e.preventDefault();
-                var name = $('#ToFind').val();
-                $('tbody').load('/FindUser/Search?ToFind=' + name);
+                let name = $('#ToFind').val();
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("search", "FindUser")',
+                    data: {
+                        ToFind: name,
+                        page: 1
+                    },
+                    success: (data) => {
+                        container.html(data);
+                    }
+                });
+            });
+
+            $(document).on('click', '.pagination a', (e) => {
+                e.preventDefault();
+                let name = $('#ToFind').val();
+                let page = $(e.target).attr('data-page');
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("search", "FindUser")',
+                    data: {
+                        ToFind: name,
+                        page: page
+                    },
+                    success: (data) => {
+                        container.html(data);
+                    }
+                });
             });
         });
     </script>

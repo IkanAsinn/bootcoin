@@ -1,14 +1,54 @@
-﻿@model List<BootCoin.Models.FindUserModel>
+﻿@model dynamic
 
-@foreach (var participant in Model)
-{
-    <tr>
-        <td>
-            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
-    @participant.ParticipantName
-        </td>
-        <td>@participant.Group</td>
-        <td>@participant.TotalCoins</td>
-    </tr> 
-}
+<div class="col-md-12 mb-3">
+    <div class="card">
+        <div class="card-title">
+            <p class="h2 fw-bold ms-3 mt-3">User List</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name @Model.pager.TotalPages</th>
+                                <th scope="col">Group</th>
+                                <th scope="col">Coin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var participant in Model.participantsList)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/1144/1144811.png" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
+                                @participant.ParticipantName
+                                    </td>
+                                    <td>@participant.Group</td>
+                                    <td>@participant.TotalCoins</td>
+                                </tr> 
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 mb-3">
+    @if(Model.pager.TotalPages > 0)
+    {
+        <nav>
+            <ul class="pagination justify-content-start">
+                @for(var pg = Model.pager.StartPage; pg <= Model.pager.EndPage; pg++)
+                {
+                    <li class="page-item @(pg == Model.pager.CurrentPage? "active" : "")">
+                        <a class="page-link" data-page="@pg">@pg</a>                            
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
+</div>
 
