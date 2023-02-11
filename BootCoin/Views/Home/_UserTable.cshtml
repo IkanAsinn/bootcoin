@@ -67,7 +67,7 @@
                 </tbody>
             </table>
 
-            <button class="bg-warning fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#add-user-@Model.FirstOrDefault().GroupID"><i class="bi bi-plus-circle-fill fs-6"></i> Add User</button>
+            <button class="bg-warning fw-bold px-4 py-2 rounded" type="button" style="border: none;" data-bs-toggle="modal" data-bs-target="#add-user-@Model.FirstOrDefault().GroupID"><i class="bi bi-plus-circle-fill fs-6"></i> Add User</button>
 
             <div class="modal fade" id="add-user-@Model.FirstOrDefault().GroupID" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -81,15 +81,15 @@
                             <div class="modal-body">
                                 <label class="fw-bold">Full Name</label>
                                 @*<button class="sub">-</button>*@
-                                <input type="text" value="" name="FullName"/>
+                                <input type="text" value="" name="FullName" required/>
                                 @*<button class="plus">+</button>*@
 
                                 <label> <img src="~/images/Add File.png"> </label>
                                 <input type="file" value="" id="image" style="display: none"/>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-warning fw-bold">Save changes</button>
+                                <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-warning fw-bold">Confirm</button>
                             </div>
                         </form>
                     </div>

@@ -1,6 +1,4 @@
 ﻿.main-content {
-    min-height: 100vh;
-    min-width: 100vw;
     background: linear-gradient(170deg, rgba(246, 234, 123, .9), rgba(182, 30, 148, .9)), url('/images/profilebg.png');
     background-size: cover;
     background-position: center;
