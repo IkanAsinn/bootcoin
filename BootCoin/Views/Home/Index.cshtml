@@ -1,35 +1,35 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
+
+<div class="col-md-12 my-2 bg-light bg-light pt-3 pb-2 px-4">
+    <p class="h2 fw-bold">Input Coin</p>
+    <p>Input user's coin per group</p>
+</div>
+
 <div class="container p-4">
-    <div class="row">
-        <div class="col-md-12 mb-3">
-            <p class="h2 fw-bold">Input Coin</p>
-            <p>Input user's coin per group</p>
-        </div>
 
         <div class="col-md-12 mb-3">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link bg-warning text-black fw-bold active" data-group="GR01">Group A</a>
+                    <a class="nav-link bg-warning text-black fw-bold active px-5" data-group="GR01">Group A</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" data-group="GR02">Group B</a>
+                    <a class="nav-link text-black fw-bold px-5" data-group="GR02">Group B</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" data-group="GR03">Group C</a>
+                    <a class="nav-link text-black fw-bold px-5" data-group="GR03">Group C</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" data-group="GR04">Group D</a>
+                    <a class="nav-link text-black fw-bold px-5" data-group="GR04">Group D</a>
                 </li>
             </ul>
         </div>
-        <div class="main-content"></div>
+        <div class="main-content">
+
+        </div>
         
-
-
-    </div>
 </div>
 
 @section Scripts {
@@ -45,8 +45,8 @@
                     let group = $(this).data('group');
                     container.load('/Home/GetParticipants?GroupID=' + group);
 
-                    $(buttons[button]).addClass('active bg-warning fw-bold');
-                    $(currentButton).removeClass('active bg-warning fw-bold');
+                    $(buttons[button]).addClass('active bg-warning shadow-sm');
+                    $(currentButton).removeClass('active bg-warning shadow-sm');
                     currentButton = $(buttons[button]);
                 });
             });

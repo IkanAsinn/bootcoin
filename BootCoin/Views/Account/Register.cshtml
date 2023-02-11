@@ -5,11 +5,11 @@
 }
 
 <div class="wrapper p-4 ">
-    <div class="row d-flex justify-content-start">
+    <div class="row d-flex justify-content-between">
         <div class="col-4">
             <div class="logo">
                 <img src="/images/logo.png" alt="logo" asp-append-version="true" />
-                <p class="fw-bold">Coins For The Strong</p>
+                <p class="fs-4">Coins For The Strong</p>
             </div>
         </div>
         <div class="col-7">
@@ -18,26 +18,26 @@
                     <h1 class="text-white display-4 align-text-left mb-3" id="title-register">Register</h1>
                     <div class="form-group mb-3">
                         <label class="fs-5" asp-for="UserName"></label>
-                        <input type="text" class="form-control" id="username" name="username" asp-for="UserName"/>
+                        <input type="text" class="form-control" id="username" name="username" asp-for="UserName" required />
                         <span asp-validation-for="UserName" class="text-danger"></span>
                     </div>
                     <div class="form-group mb-3">
                         <label class="fs-5" asp-for="Email"></label>
-                        <input type="email" class="form-control" id="email" name="email" asp-for="Email"/>
+                        <input type="email" class="form-control" id="email" name="email" asp-for="Email" required />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="form-group mb-3">
                         <label class="fs-5" asp-for="Password"></label>
-                        <input asp-for="Password" type="password" class="form-control" id="password" name="password" />
+                        <input asp-for="Password" type="password" class="form-control" id="password" name="password" placeholder="minimun 8 characters" required />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="form-group mb-3">
                         <label class="fs-5" asp-for="ConfirmPassword"></label>
-                        <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirmPassword" name="ConfirmPassword"/>
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirmPassword" name="ConfirmPassword" required />
                         <span asp-validation-for="ConfirmPassword"></span>
                     </div>
                     <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="agreeTermsAndCondition">
+                        <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="agreeTermsAndCondition" required>
                         <label class="form-check-label" for="flexCheckChecked">
                         I Agree to The Terms and Conditions
                         </label>
