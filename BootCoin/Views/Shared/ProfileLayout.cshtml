@@ -18,13 +18,15 @@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/images/logo.png" asp-append-version="true" style="height: 8vh;" /></a>
 
                 <div class="user-profile">
-                    <div class="user-info">
-                        <span>Name</span>
-                        <span id="username">@User.FindFirst("AdminName").Value</span>
-                    </div>
                     <div class="dropdown">
-                        <a class="bg-transparent" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="@User.FindFirst("ImagePath").Value" alt="User Profile Picture" asp-append-version="true" width="50px"/>
+                        <a class="bg-transparent text-decoration-none text-black" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex">
+                                <div class="user-info me-2">
+                                    <span>Name</span>
+                                    <span id="username">@User.FindFirst("AdminName").Value</span>
+                                </div>
+                                <img src="@User.FindFirst("ImagePath").Value" alt="User Profile Picture" asp-append-version="true" width="50px"/>
+                            </div>  
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">

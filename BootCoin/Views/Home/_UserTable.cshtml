@@ -8,16 +8,16 @@
 <div class="col-md-12 mb-3">
     <div class="card mb-3 p-3 shadow-sm">
         <div class="row align-items-center">
-            <div class="col-md-2">
-                <img src="https://cdn-icons-png.flaticon.com/512/1829/1829552.png" class="img-fluid rounded" style="height: 10vh;">
+            <div class="col-md-1">
+                <img src="https://cdn-icons-png.flaticon.com/512/1829/1829552.png" class="img-fluid rounded mx-3" style="height: 10vh;">
             </div>
             <div class="col-md-2">
-                <h4 class="card-title">Group <span id="group-name">@Model.FirstOrDefault().Group</span></h4>
+                <h4 class="card-title px-3">Group <span id="group-name">@Model.FirstOrDefault().Group</span></h4>
             </div>
-            <div class="col-md-2 align-items-center">
+            <div class="col-md-3 align-items-center">
                 <p class="card-text fw-bold fs-6 text-muted">Total Coin</p>
                 <h4 class="card-text">
-                    <img src="/images/logo2.png" style="height: 5vh;" alt="logo" asp-append-version="true" />
+                    <img src="/images/logo2.png" style="height: 4vh;" alt="logo" asp-append-version="true" />
                     <span id="group-total-coins">@Model.FirstOrDefault().TotalCoins / 8000</span>
                 </h4>
             </div>
