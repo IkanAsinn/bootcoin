@@ -9,10 +9,11 @@
             </div>
             <form asp-action="AddUser" method="post" enctype="multipart/form-data">
                 <input type="hidden" asp-for="GroupID"/>
-                <div class="modal-body">
-                    <label>Full Name</label>
-                    <input type="text" asp-for="ParticipantName"/>
+                <div class="modal-body d-flex flex-column">
+                    <label class="fw-bold">Full Name*</label>
+                    <input type="text" asp-for="ParticipantName" class="mb-3" required/>
 
+                    <label class="fw-bold">Image</label>
                     <label for="image"> <img src="~/images/Add File.png"> </label>
                     <input type="file" id="image" style="display: none" asp-for="Image"/>
                 </div>

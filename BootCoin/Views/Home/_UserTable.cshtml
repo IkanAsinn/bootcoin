@@ -9,27 +9,27 @@
     <div class="card mb-3 p-3 shadow-sm">
         <div class="row align-items-center">
             <div class="col-md-1">
-                <img src="https://cdn-icons-png.flaticon.com/512/1829/1829552.png" class="img-fluid rounded mx-3" style="height: 10vh;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1829/1829552.png" class="img-fluid rounded mx-3" style="width: 50px;">
             </div>
             <div class="col-md-2">
                 <h4 class="card-title px-3">Group <span id="group-name">@Model.FirstOrDefault().Group</span></h4>
             </div>
-            <div class="col-md-3 align-items-center">
+            <div class="col-md-3 align-items-center text-center">
                 <p class="card-text fw-bold fs-6 text-muted">Total Coin</p>
                 <h4 class="card-text">
-                    <img src="/images/logo2.png" style="height: 4vh;" alt="logo" asp-append-version="true" />
+                    <img src="/images/logo2.png" style="width: 40px;" alt="logo" asp-append-version="true" />
                     <span id="group-total-coins">@Model.FirstOrDefault().TotalCoins / 8000</span>
                 </h4>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
                 <p class="card-text fw-bold fs-6 text-muted">Percentage</p>
                 <h4 class="card-text">@percentage%</h4>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
                 <p class="card-text fw-bold fs-6 text-muted">Total Member</p>
                 <h4 class="card-text">@Model.FirstOrDefault().TotalMember</h4>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
                 <p class="card-text fw-bold fs-6 text-muted">Rank</p>
                 <h4 class="card-text">@Model.FirstOrDefault().Rank</h4>
             </div>
@@ -55,7 +55,7 @@
                     {
                         <tr>
                             <td>
-                                <img src="@user.ImagePath" class="img-fluid me-2" alt="icon_user" style="height: 5vh;">
+                                <img src="@user.ImagePath" class="img-fluid me-2" alt="icon_user" style="width: 50px;">
                                 @user.ParticipantName
                             </td>
                             <td class="text-center">@user.CoinsObtained</td>
