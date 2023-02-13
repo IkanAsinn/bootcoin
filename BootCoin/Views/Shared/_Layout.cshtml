@@ -24,7 +24,7 @@
                                     <span>Name</span>
                                     <span id="username">@User.FindFirst("AdminName").Value</span>
                                 </div>
-                                <img src="@User.FindFirst("ImagePath").Value" alt="User Profile Picture" asp-append-version="true" width="50px"/>
+                                <img src="@User.FindFirst("ImagePath").Value" alt="User Profile Picture" asp-append-version="true" style="width: 50px; height: 50px; object-fit: cover;" />
                             </div>  
                         </a>
 
