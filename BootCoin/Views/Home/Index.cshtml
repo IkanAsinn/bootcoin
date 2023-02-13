@@ -42,12 +42,15 @@
             $('#input-coin').addClass('active');
             buttons.each(button => {
                 $(buttons[button]).click(function () {
-                    let group = $(this).data('group');
-                    container.load('/Home/GetParticipants?GroupID=' + group);
+                    if (currentButton.data('group') != $(this).data('group')) {
+                        let group = $(this).data('group');
+                        container.load('/Home/GetParticipants?GroupID=' + group);
 
-                    $(buttons[button]).addClass('active bg-warning shadow-sm');
-                    $(currentButton).removeClass('active bg-warning shadow-sm');
-                    currentButton = $(buttons[button]);
+                        $(buttons[button]).addClass('active bg-warning shadow-sm');
+                        $(currentButton).removeClass('active bg-warning shadow-sm');
+
+                        currentButton = $(this);
+                    }
                 });
             });
         });

@@ -23,6 +23,7 @@ namespace BootCoin.Controllers
                 p.ParticipantName = participant.ParticipantName;
                 p.Group = _context.Group.Where(g => g.GroupID == participant.GroupID).Select(g => g.GroupName).FirstOrDefault();
                 p.TotalCoins = participant.TotalCoins;
+                p.ImagePath = participant.ImagePath;
                 participantsList.Add(p);
             }
 

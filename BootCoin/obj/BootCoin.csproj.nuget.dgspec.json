@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hiray\\OneDrive\\Desktop\\Local Repository\\bootcoin\\BootCoin\\BootCoin.csproj": {}
+    "D:\\C# Projects\\BootCoin\\BootCoin\\BootCoin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hiray\\OneDrive\\Desktop\\Local Repository\\bootcoin\\BootCoin\\BootCoin.csproj": {
+    "D:\\C# Projects\\BootCoin\\BootCoin\\BootCoin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hiray\\OneDrive\\Desktop\\Local Repository\\bootcoin\\BootCoin\\BootCoin.csproj",
+        "projectUniqueName": "D:\\C# Projects\\BootCoin\\BootCoin\\BootCoin.csproj",
         "projectName": "BootCoin",
-        "projectPath": "C:\\Users\\hiray\\OneDrive\\Desktop\\Local Repository\\bootcoin\\BootCoin\\BootCoin.csproj",
-        "packagesPath": "C:\\Users\\hiray\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hiray\\OneDrive\\Desktop\\Local Repository\\bootcoin\\BootCoin\\obj\\",
+        "projectPath": "D:\\C# Projects\\BootCoin\\BootCoin\\BootCoin.csproj",
+        "packagesPath": "C:\\Users\\LEGION 5\\.nuget\\packages\\",
+        "outputPath": "D:\\C# Projects\\BootCoin\\BootCoin\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hiray\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LEGION 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,7 +91,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -107,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

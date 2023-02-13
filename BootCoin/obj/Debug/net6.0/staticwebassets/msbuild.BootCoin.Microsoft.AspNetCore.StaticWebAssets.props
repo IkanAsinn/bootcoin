@@ -224,6 +224,54 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\06bda819-ca5d-47af-8470-001bf5719549wenomechainsama.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\37d8ff57-a112-419d-b454-8dc3c292d437Profile_-_SpongeBob_SquarePants.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>BootCoin</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BootCoin</BasePath>
+      <RelativePath>images/user-photo/37d8ff57-a112-419d-b454-8dc3c292d437Profile_-_SpongeBob_SquarePants.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\37d8ff57-a112-419d-b454-8dc3c292d437Profile_-_SpongeBob_SquarePants.webp))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\575c8705-a451-4f47-ab78-b6e60172a2e8logo.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>BootCoin</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BootCoin</BasePath>
+      <RelativePath>images/user-photo/575c8705-a451-4f47-ab78-b6e60172a2e8logo.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\575c8705-a451-4f47-ab78-b6e60172a2e8logo.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\6fac8a35-6090-4087-b0be-d71e5b8d9ae525-254291_mr-krabs-png-transparent-png.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>BootCoin</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BootCoin</BasePath>
+      <RelativePath>images/user-photo/6fac8a35-6090-4087-b0be-d71e5b8d9ae525-254291_mr-krabs-png-transparent-png.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\6fac8a35-6090-4087-b0be-d71e5b8d9ae525-254291_mr-krabs-png-transparent-png.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\952250cd-8575-46bd-8ee1-d79af0046a4agordon.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>BootCoin</SourceId>
@@ -255,6 +303,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\b70a2419-0c22-4016-a771-e10bbeb0772dikanpel.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\b9821773-7b7d-4726-bdf4-b01c93d2f406Patrick_Star.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>BootCoin</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BootCoin</BasePath>
+      <RelativePath>images/user-photo/b9821773-7b7d-4726-bdf4-b01c93d2f406Patrick_Star.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\b9821773-7b7d-4726-bdf4-b01c93d2f406Patrick_Star.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\user-photo\eeabe5eb-5f90-4cb7-af39-92e0f0426978menggokil-300x279.jpg))">
       <SourceType>Package</SourceType>
